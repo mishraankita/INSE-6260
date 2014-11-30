@@ -23,7 +23,7 @@
   	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
   	<url-pattern>/searchDetails</url-pattern>
   </servlet-mapping>
-    
+  
   <servlet>
    	<servlet-name>SearchStudentDetails</servlet-name>
    	<servlet-class>com.osms.controller.SearchStudentDetails</servlet-class>

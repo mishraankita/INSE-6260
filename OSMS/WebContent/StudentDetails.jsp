@@ -8,7 +8,6 @@
 <title>Student Details</title>
 </head>
 <body background=welcome.jpg>
-	<h2 align=center><a href=./student.jsp>View My Account</a><br/></h2>
 	<br><h1 align=center ><font color=blue>Student Details</font></h1>
 	<table border =1 align=center >
 		<tr>

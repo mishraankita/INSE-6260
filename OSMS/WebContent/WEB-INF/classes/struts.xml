@@ -109,6 +109,12 @@
          <result name="regfailure"> /regfailure.jsp </result>
     </action>
 	
+	<action name="searchDetails" method="searchDetails"
+         class="com.osms.controller.SearchStudentOrDpdDetails">
+         <result name="regsuccess"> /regsuccess.jsp </result>
+         <result name="regfailure"> /regfailure.jsp </result>
+    </action>
+	
  
    </package>
 </struts>
