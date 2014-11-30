@@ -1,4 +1,4 @@
-package com.servlet;
+package com.osms.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,38 +17,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.osms.domain.User;
+
 /**
  * Servlet implementation class FeePayment
  */
-public class FeePaymentServlet extends HttpServlet {
+public class FeePaymentServlet extends ActionSupport implements SessionAware,
+		ServletRequestAware {
+
 	private static final long serialVersionUID = 1L;
 	final int PAID = 0;
 	final int DUE = 1;
 	final int UNKNOWN = 2;
 	int paymentStatus = UNKNOWN;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FeePaymentServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private SessionMap<String, Object> sessionMap;
+	private HttpServletRequest httpServletRequest;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * payfees TODO
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	public void payFees(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String userID = (String) session.getAttribute("userID");
-		
+	public String payFees() {
+		String userID = (String) sessionMap.get("UserID");
 		String message = "Connection failed. Please try again later";
 
 		try {
@@ -101,11 +97,16 @@ public class FeePaymentServlet extends HttpServlet {
 			e.printStackTrace();
 			paymentStatus = UNKNOWN;
 		}
-		
-		RequestDispatcher rd = request
-				.getRequestDispatcher("./feePayment.jsp");
-		request.setAttribute("resultsMessage", message);
-		request.setAttribute("paymentStatus", paymentStatus);
-		rd.forward(request, response);
+		httpServletRequest.setAttribute("resultsMessage", message);
+		httpServletRequest.setAttribute("paymentStatus", paymentStatus);
+		return "feePayment";
+	}
+
+	public void setSession(Map<String, Object> arg0) {
+		this.sessionMap=(SessionMap<String, Object>) arg0;
+	}
+
+	public void setServletRequest(HttpServletRequest arg0) {
+		this.httpServletRequest = arg0;
 	}
 }

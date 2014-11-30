@@ -36,10 +36,10 @@
   	<url-pattern>/SearchStudentDetails</url-pattern>
   </servlet-mapping>
   
-   <servlet-mapping>
-  	<servlet-name>GetStudentInfoServlet</servlet-name>
-  	<url-pattern>/GetStudentInfo</url-pattern>
-  </servlet-mapping>
+<!--    <servlet-mapping> -->
+<!--   	<servlet-name>GetStudentInfoServlet</servlet-name> -->
+<!--   	<url-pattern>/GetStudentInfo</url-pattern> -->
+<!--   </servlet-mapping> -->
   
     <servlet>
    	<servlet-name>ManageStudentDetails</servlet-name>
@@ -59,32 +59,6 @@
   <servlet-mapping>
   	<servlet-name>SetDatesServlet</servlet-name>
   	<url-pattern>/SetDates</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    	<description>
-    	</description>
-    	<display-name>FeePaymentServlet</display-name>
-    	<servlet-name>FeePaymentServlet</servlet-name>
-    	<servlet-class>com.servlet.FeePaymentServlet</servlet-class>
-    </servlet>
-
-  <servlet-mapping>
-  	<servlet-name>FeePaymentServlet</servlet-name>
-  	<url-pattern>/FeePaymentServlet</url-pattern>
-  </servlet-mapping>
-  
-     <servlet>
-    	<description>
-    	</description>
-    	<display-name>FeePaymentOutcomeServlet</display-name>
-    	<servlet-name>FeePaymentOutcomeServlet</servlet-name>
-    	<servlet-class>com.servlet.FeePaymentOutcomeServlet</servlet-class>
-    </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>FeePaymentOutcomeServlet</servlet-name>
-  	<url-pattern>/FeePaymentOutcomeServlet</url-pattern>
   </servlet-mapping>
   
   

@@ -1,4 +1,4 @@
-package com.servlet;
+package com.osms.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,33 +17,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.osms.domain.User;
+
 /**
  * Servlet implementation class FeePaymentOutcome
  */
-public class FeePaymentOutcomeServlet extends HttpServlet {
+public class FeePaymentOutcomeServlet extends ActionSupport implements SessionAware,ServletRequestAware {
+
+	
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FeePaymentOutcomeServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private SessionMap<String, Object> sessionMap;
+	private HttpServletRequest httpServletRequest;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String userID = (String) session.getAttribute("userID");
+	public String payFeesOutcome() {
+		//HttpSession session = request.getSession();
+		String userID = (String) sessionMap.get("UserID");
 		
 		String message = "Connection failed. Please try again later";
 
@@ -92,10 +88,19 @@ public class FeePaymentOutcomeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request
-				.getRequestDispatcher("./feePaymentOutcome.jsp");
-		request.setAttribute("resultsMessage", message);
-		rd.forward(request, response);
+		//RequestDispatcher rd = request
+			//	.getRequestDispatcher("./feePaymentOutcome.jsp");
+		httpServletRequest.setAttribute("resultsMessage", message);
+		//rd.forward(request, response);
+		return "feePaymentOutcome";
+	}
+
+	public void setSession(Map<String, Object> arg0) {
+		this.sessionMap = (SessionMap<String, Object>) arg0;
+		
+	}
+	public void setServletRequest(HttpServletRequest arg0) {
+		this.httpServletRequest = arg0;
 	}
 
 }

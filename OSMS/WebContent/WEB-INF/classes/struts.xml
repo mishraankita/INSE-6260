@@ -45,8 +45,12 @@
     
     <action name="FeePaymentServlet" method="payFees"
          class="com.osms.controller.FeePaymentServlet">
-         <result name="failure"> /failure.html </result>
-         <result name="success"> /studentsuccess.jsp </result>
+         <result name="feePayment"> /feePayment.jsp </result>
+    </action>
+    
+      <action name="FeePaymentOutcomeServlet" method="payFeesOutcome"
+         class="com.osms.controller.FeePaymentOutcomeServlet">
+         <result name="feePaymentOutcome"> /feePaymentOutcome.jsp </result>
     </action>
 
 	<action name="AccountSettingDetails" method="accountSettingDetails"
