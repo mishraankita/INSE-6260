@@ -43,8 +43,8 @@
          <result name="success"> /courseChangeStudent.jsp </result>
     </action>
     
-    <action name="PayFees" method="payFees"
-         class="com.osms.controller.GetStudentInfoServlet">
+    <action name="FeePaymentServlet" method="payFees"
+         class="com.osms.controller.FeePaymentServlet">
          <result name="failure"> /failure.html </result>
          <result name="success"> /studentsuccess.jsp </result>
     </action>

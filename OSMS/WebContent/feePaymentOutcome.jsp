@@ -6,16 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
+<body>
+<br><%=(String)request.getAttribute("resultsMessage")%><br>
+
 <form action="./studentsuccess.jsp" method=POST>
-		<input value = "Registration Output" name = "resultsMessage">
-</form>
-<form>
-<a href="./studentsuccess.jsp">Close</a>
-	<br><%=(String)request.getAttribute("resultsMessage")%><br>
-</form>
-<form action="./CourseRegistrationServlet" method=POST >
- <input type="submit"  name="submit" value="Return" />
- </form>
-</body>
+		<input type="submit" value="Return">
+	</form></body>
 </html>

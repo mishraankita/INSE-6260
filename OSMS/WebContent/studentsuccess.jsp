@@ -15,10 +15,10 @@
 <form action="./CourseRegistrationServlet" method=POST >
  <input type="submit"  name="submit" value="Register for course " />
  </form>
- <form action="./PayFees" method=POST >
- <input type="submit"  name="submit" value="pay fee " />
+<form action="./FeePaymentServlet" method=POST >
+ <input type="submit"  name="submit" value="Pay Fees"/>
  </form>
- <form action="./AccountSettingDetails" method=POST >
+ <form action="./manageMyAccount.jsp" method=POST >
  <input type="submit"  name="submit" value="Account Settings details" />
  </form>
  <form action="./welcome.html" method=POST>
