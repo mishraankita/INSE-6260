@@ -1,0 +1,71 @@
+<web-app>
+  <welcome-file-list>
+    <welcome-file>welcome.html</welcome-file>
+  </welcome-file-list>
+    
+   <servlet>
+   <servlet-name>StudentSevlet</servlet-name>
+   	<servlet-class>com.osms.controller.StudentSevlet</servlet-class>
+   </servlet>
+  
+   	<servlet-mapping>
+  	<servlet-name>StudentSevlet</servlet-name>
+  	<url-pattern>/StudentServlet</url-pattern>
+  </servlet-mapping>
+  
+   
+  
+  <servlet>
+   	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
+   	<servlet-class>com.osms.controller.SearchStudentOrDpdDetails</servlet-class>
+   </servlet>
+   
+
+  <servlet-mapping>
+  	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
+  	<url-pattern>/searchDetails</url-pattern>
+  </servlet-mapping>
+    
+  <servlet>
+   	<servlet-name>SearchStudentDetails</servlet-name>
+   	<servlet-class>com.osms.controller.SearchStudentDetails</servlet-class>
+   </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>SearchStudentDetails</servlet-name>
+  	<url-pattern>/SearchStudentDetails</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+   	<servlet-name>ManageStudentDetails</servlet-name>
+   	<servlet-class>com.osms.controller.ManageStudentDetails</servlet-class>
+   </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ManageStudentDetails</servlet-name>
+  	<url-pattern>/ManageStudentDetails</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   	<servlet-name>SetDatesServlet</servlet-name>
+   	<servlet-class>com.osms.controller.SetDatesServlet</servlet-class>
+   </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>SetDatesServlet</servlet-name>
+  	<url-pattern>/SetDates</url-pattern>
+  </servlet-mapping>
+  
+  
+  <filter>
+      <filter-name>struts2</filter-name>
+      <filter-class>
+         org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+      </filter-class>
+   </filter>
+
+   <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/*</url-pattern>
+   </filter-mapping>
+</web-app>

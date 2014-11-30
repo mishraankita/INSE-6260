@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+  
+   <package name="helloworld" extends="struts-default">
+      
+      <action name="LogonServlet" method="login"
+         class="com.osms.controller.LoginAction">
+         <result name="failure"> /failure.html </result>
+         <result name="accountLocked"> /accountLocked.html </result>
+         <result name="studentsuccess"> /studentsuccess.jsp </result>
+         <result name="adminsuccess"> /adminsuccess.jsp </result>
+         <result name="dpdsuccess"> /dpdsuccess.html </result>
+      </action>
+
+	<action name="MyDetailsServlet" method="getMyDetails"
+         class="com.osms.controller.MyDetailsAction">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /StudentDetails.jsp </result>
+    </action>
+      
+    <action name="RecoverPassword" method="recoverPassword"
+         class="com.osms.controller.RecoverPasswordAction">
+         <result name="failure"> /failure.html </result>
+         <result name="accountLocked"> /accountLocked.html </result>
+         <result name="studentsuccess"> /studentsuccess.jsp </result>
+         <result name="adminsuccess"> /adminsuccess.jsp </result>
+         <result name="dpdsuccess"> /dpdsuccess.html </result>
+    </action>
+      
+    <action name="CourseRegistrationServlet" method="registerCourse"
+         class="com.osms.controller.CourseRegistrationServlet">
+         <result name="failure"> /failure.html </result>
+    </action> 
+    
+    <action name="CourseChangeStudentServlet" method="changeCourse"
+         class="com.osms.controller.CourseChangeStudentServlet">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /courseChangeStudent.jsp </result>
+    </action>
+    
+    <action name="PayFees" method="payFees"
+         class="com.osms.controller.GetStudentInfoServlet">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /studentsuccess.jsp </result>
+    </action>
+
+	<action name="AccountSettingDetails" method="accountSettingDetails"
+         class="com.osms.controller.GetStudentInfoServlet">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /studentsuccess.jsp </result>
+    </action>
+    
+    <action name="enrollstudentOrDpd">
+         <result> /enrollstudentOrDpd.html </result>
+    </action>
+    
+    <action name="searchStudentOrDpdDetail" >
+         <result > /searchStudentOrDpdDetail.html </result>
+    </action>
+    
+    <action name="manageStudentOrDpdAccount" >
+         <result> /manageStudentOrDpdAccount.jsp </result>
+    </action>
+    
+ 	<action name="setDateDetail"> 
+ 		<result>/setDateDetail.jsp </result>
+    </action>
+    
+    <action name="setDateDetail"> 
+ 		<result>/setDateDetail.jsp </result>
+    </action>
+    
+     <action name="studentEnroll" >
+         <result> /studentEnroll.jsp </result>
+    </action>
+    
+     <action name="dpdEnroll" >
+         <result> /dpdEnroll.jsp </result>
+    </action>
+    
+    <action name="enroll" method="enroll"
+         class="com.osms.controller.EnrollStudentOrDpd">
+         <result name="regsuccess"> /regsuccess.jsp </result>
+         <result name="regfailure"> /regfailure.jsp </result>
+    </action>
+	
+ 
+   </package>
+</struts>
