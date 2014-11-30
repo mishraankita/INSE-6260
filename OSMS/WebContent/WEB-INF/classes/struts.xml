@@ -22,7 +22,16 @@
          <result name="failure"> /failure.html </result>
          <result name="success"> /StudentDetails.jsp </result>
     </action>
-      
+
+
+ 	<action name="RegistrationByDpd">
+         <result> /RegistrationByDpd.jsp </result>
+    </action>
+
+	<action name="searchStudentID">
+         <result> /searchStudentID.jsp </result>
+    </action>
+
     <action name="RecoverPassword" method="recoverPassword"
          class="com.osms.controller.RecoverPasswordAction">
          <result name="failure"> /failure.html </result>
@@ -31,7 +40,12 @@
          <result name="adminsuccess"> /adminsuccess.jsp </result>
          <result name="dpdsuccess"> /dpdsuccess.html </result>
     </action>
-      
+       
+	<action name="RegisterByDPD" method="registerByDPD"
+         class="com.osms.controller.RegisterByDPD">
+         <result name="failure"> /failure.html </result>
+    </action>
+    
     <action name="CourseRegistrationServlet" method="registerCourse"
          class="com.osms.controller.CourseRegistrationServlet">
          <result name="failure"> /failure.html </result>
@@ -41,6 +55,12 @@
          class="com.osms.controller.CourseChangeStudentServlet">
          <result name="failure"> /failure.html </result>
          <result name="success"> /courseChangeStudent.jsp </result>
+    </action>
+    
+     <action name="CourseChangeStudentServletByDPD" method="changeCourseByDPD"
+         class="com.osms.controller.CourseChangeStudentServletByDPD">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /courseChangeStudentByDPD.jsp </result>
     </action>
     
     <action name="FeePaymentServlet" method="payFees"
@@ -72,10 +92,6 @@
     </action>
     
  	<action name="setDateDetail"> 
- 		<result>/setDateDetail.jsp </result>
-    </action>
-    
-    <action name="setDateDetail"> 
  		<result>/setDateDetail.jsp </result>
     </action>
     

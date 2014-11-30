@@ -13,8 +13,6 @@
   	<url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
   
-   
-  
   <servlet>
    	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
    	<servlet-class>com.osms.controller.SearchStudentOrDpdDetails</servlet-class>
