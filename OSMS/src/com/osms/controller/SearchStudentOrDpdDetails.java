@@ -37,8 +37,6 @@ ServletRequestAware,ServletResponseAware {
 		String userID = request.getParameter("userID");
 		
 		List l = new ArrayList();
-		
-
 		try {
 			PrintWriter out = response.getWriter();
 			Connection con = DBConnection.getConnection();

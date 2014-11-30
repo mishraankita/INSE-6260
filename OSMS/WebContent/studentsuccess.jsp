@@ -21,7 +21,7 @@
  <form action="./manageMyAccount.jsp" method=POST >
  <input type="submit"  name="submit" value="Account Settings details" />
  </form>
- <form action="./welcome.html" method=POST>
+ <form action="./logout.jsp" method=POST>
           <pre><input type="submit"  name="submit" value=" Logout"/></pre>
 </form>
 </html>

@@ -13,16 +13,16 @@
   	<url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-   	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
-   	<servlet-class>com.osms.controller.SearchStudentOrDpdDetails</servlet-class>
-   </servlet>
+<!--   <servlet> -->
+<!--    	<servlet-name>SearchStudentOrDpdDetails</servlet-name> -->
+<!--    	<servlet-class>com.osms.controller.SearchStudentOrDpdDetails</servlet-class> -->
+<!--    </servlet> -->
    
 
-  <servlet-mapping>
-  	<servlet-name>SearchStudentOrDpdDetails</servlet-name>
-  	<url-pattern>/searchDetails</url-pattern>
-  </servlet-mapping>
+<!--   <servlet-mapping> -->
+<!--   	<servlet-name>SearchStudentOrDpdDetails</servlet-name> -->
+<!--   	<url-pattern>/searchDetails</url-pattern> -->
+<!--   </servlet-mapping> -->
   
   <servlet>
    	<servlet-name>SearchStudentDetails</servlet-name>

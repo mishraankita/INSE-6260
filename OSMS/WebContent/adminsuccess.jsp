@@ -30,7 +30,7 @@
 	</form>
 	</td></tr>
 	<tr><td>
-	<form action="./welcome.html" method=POST>
+	<form action="./logout.jsp" method=POST>
 		<pre>
 			<input type="submit" name="submit" value=" Logout" />
 		</pre>
