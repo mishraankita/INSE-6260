@@ -37,10 +37,22 @@
     
     <action name="updateStudent" method="updateStudent"
          class="com.osms.controller.ManageStudentAction">
-         <result name="success"> /manageStudentOrDpdAccount.jsp </result>
+         <result name="success"> /manageStudentAccount.jsp </result>
          <result name="failure"> /failure.jsp </result>
     </action>
-	
+
+	 <action name="manageDPD" method="getDPDDetails"
+         class="com.osms.controller.ManageDPDAction">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /ManageDPDDetails.jsp </result>
+    </action>
+    
+    <action name="updateDPD" method="updateDPD"
+         class="com.osms.controller.ManageDPDAction">
+         <result name="success"> /ManageDPDAccount.jsp </result>
+         <result name="failure"> /failure.jsp </result>
+    </action>
+    
  	<action name="RegistrationByDpd">
          <result> /RegistrationByDpd.jsp </result>
     </action>
@@ -104,8 +116,12 @@
          <result > /searchStudentOrDpdDetail.html </result>
     </action>
     
-    <action name="manageStudentOrDpdAccount" >
-         <result> /manageStudentOrDpdAccount.jsp </result>
+    <action name="manageStudentAccount" >
+         <result> /manageStudentAccount.jsp </result>
+    </action>
+    
+    <action name="manageDPDAccount" >
+         <result> /ManageDPDAccount.jsp </result>
     </action>
     
  	<action name="setDateDetail"> 

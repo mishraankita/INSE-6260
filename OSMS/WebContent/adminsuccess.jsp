@@ -19,9 +19,15 @@
 	<form action="./searchStudentOrDpdDetail" method=POST>
 		<input type="submit" name="submit" value="View student/DPD Account " />
 	</form>
+	</td></tr>
 	<tr><td>
-	<form action="./manageStudentOrDpdAccount" method=POST>
-		<input type="submit" name="submit" value="Manage student/DPD Account" />
+	<form action="./manageStudentAccount" method=POST>
+		<input type="submit" name="submit" value="Manage student Account" />
+	</form>
+	</td></tr>
+	<tr><td>
+	<form action="./manageDPDAccount" method=POST>
+		<input type="submit" name="submit" value="Manage DPD Account" />
 	</form>
 	</td></tr>
 	<tr><td>

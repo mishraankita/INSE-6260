@@ -34,7 +34,7 @@ public class ManageStudentAction extends ActionSupport implements
 			// out.println(" <h2 align=center><a href=./student.jsp>VIEW MY Account</a><br/></h2>");
 			ResultSet rs = stmt
 					.executeQuery("select * from studentdetails where UserID='"
-							+ "123" + "'");
+							+ userID + "'");
 			// out.println("<html>"
 			// + "<body background=welcome.jpg >"
 			// + "<h1 align=center >"
@@ -55,7 +55,7 @@ public class ManageStudentAction extends ActionSupport implements
 			}
 			ResultSet rs2 = stmt
 					.executeQuery("select * from coursetaken where UserID='"
-							+ "123" + "'");
+							+ userID + "'");
 			while (rs2.next()) {
 				student.setCourseID(rs2.getInt(2));
 				student.setGradesObtained(rs2.getString(3));
@@ -63,7 +63,7 @@ public class ManageStudentAction extends ActionSupport implements
 
 			ResultSet rs3 = stmt
 					.executeQuery("select * from feepayment where UserID='"
-							+ "123" + "'");
+							+ userID + "'");
 			while (rs3.next()) {
 				student.setFeesPaid(true);
 				String paymentDateYear = rs3.getString(2).substring(0, 4);
@@ -79,7 +79,7 @@ public class ManageStudentAction extends ActionSupport implements
 
 			ResultSet rs4 = stmt
 					.executeQuery("select Status,Password,SecurityQuestion,Answer from login where UserID='"
-							+ "123" + "'");
+							+ userID + "'");
 			while (rs4.next()) {
 				student.setPassword(rs4.getString(2));
 				student.setSecurityQuestion(rs4.getString(3));
