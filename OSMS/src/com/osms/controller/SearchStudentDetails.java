@@ -1,49 +1,63 @@
 package com.osms.controller;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.Student;
 
-public class SearchStudentDetails extends HttpServlet {
+public class SearchStudentDetails extends ActionSupport implements ModelDriven<Student> , SessionAware,ServletRequestAware,ServletResponseAware {
 	private static final long serialVersionUID = 1L;
+	private SessionMap<String, Object> sessionMap;
+	HttpServletResponse response;
+	HttpServletRequest request;
+//	public Student getModel() {
+//		return student;
+//	}
+	
+	public void searchDetails()  {
 
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
 		String userID = request.getParameter("UserID");
-		List l = new ArrayList();
-		PrintWriter out = response.getWriter();
-		System.out.println("userID is :" + userID);
+		System.out.println("userID is!!!!!!!!!!!!!!!!!!!!!!!!! :" + userID);
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
+			PrintWriter out = getServletResponse().getWriter();
+			boolean validStudentAccount = false;
+			String studentUserID = "";
+			if(userID!=null){
+				System.out.println("userID is second call inside first if " + userID);
+				sessionMap.put("studentUserID", userID);
+			}
+			studentUserID = (String) sessionMap.get("studentUserID");
+			System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%" + studentUserID);
+			if(userID == null){
+				userID = (String) sessionMap.get("studentUserID");
+				System.out.println("studentID in second call inside second if" + studentUserID);
+			}
+				
 				ResultSet rs = stmt
 						.executeQuery("select * from studentdetails where UserID='"
 								+ userID + "'");
-
-				System.out
-						.println("===============students====  UserID ,firstname, lastname, Address, dob, address, Curriculum, Grade;===========");
-
-				out.println("<html>"
-						+ "<body background=welcome.jpg >"
-						+ "<h1 align=center >"
-						+ "<font color=blue>Student Academic Details</font></h1><br><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th> <th>Address</th><th>Phone Number</th> <th>Email</th><th>Session Joined</th><th>Department ID</th><th>Enrolled in program</th><th>Date of birth</th></tr>");
 				while (rs.next()) {
-
+					validStudentAccount = true;
+					out.println("<html>"
+							+ "<body background=welcome.jpg >"
+							+ "<h1 align=center >"
+							+ "<font color=blue>Student Details</font></h1><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th> <th>Address</th><th>Phone Number</th> <th>Email</th><th>Session Joined</th><th>Department ID</th><th>Enrolled in program</th><th>Date of birth</th></tr>");
+					
 					Student s = new Student();
 					s.setUserID(rs.getInt(1));
 					s.setFirstName(rs.getString(2));
@@ -55,7 +69,6 @@ public class SearchStudentDetails extends HttpServlet {
 					s.setDepartmentID(rs.getInt(8));
 					s.setEnrollProgram(rs.getString(9));
 					s.setDob(rs.getString(10));
-					l.add(s);
 
 					System.out.println("UserID" + s.getUserID());
 					out.println("<tr><td>" + s.getUserID() + "</td><td>"
@@ -66,26 +79,27 @@ public class SearchStudentDetails extends HttpServlet {
 							+ s.getDepartmentID() + "</td><td>"
 							+ s.getEnrollProgram() + "</td><td>" + s.getDob()
 							+ "</td></tr>");
+					out.println("</table border=3 ></body></html>");
 				}
 					ResultSet rs2 = stmt
 							.executeQuery("select * from coursetaken where UserID='"
 									+ userID + "'");
-					System.out.println("rs is :" + rs);
-
-					System.out
-							.println("===============students====  Course Taken ,Grades Obtained ===========");
-
-					out.println("<html>"
-							+ "<body background=welcome.jpg >"
-							+ "<h1 align=center >"
-							+ "<font color=blue>Student Details</font></h1><br><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
-					while (rs2.next()) {
-
+					boolean printAcademicDetails = true;
+					while (rs2.next() && validStudentAccount) {
+						if(printAcademicDetails){
+							out.println("<html>"
+									+ "<body background=welcome.jpg >"
+									+ "<br><br><h1 align=center >"
+									+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
+							printAcademicDetails=false;
+						}
 						System.out.println("UserID" + rs2.getString(1));
 						out.println("<tr><td>" + rs2.getString(2) + "</td><td>"+ rs2.getString(3)
 								+ "</td></tr>");
 					}
-					
+					if(!printAcademicDetails){
+						out.println("</table border=3 ></body></html>");
+					}
 					ResultSet rs3 = stmt
 							.executeQuery("select * from feepayment where UserID='"
 									+ userID + "'");
@@ -93,38 +107,73 @@ public class SearchStudentDetails extends HttpServlet {
 
 					System.out
 							.println("===============students====  Payment Date ,Payment Amount , Payment Fee Deadline ===========");
-
-					out.println("<html>"
-							+ "<body background=welcome.jpg >"
-							+ "<h1 align=center >"
-							+ "<font color=blue>Student Fee payment Details</font></h1><br><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
-					while (rs3.next()) {
-
-						String paymentDateYear = rs3.getString(2).substring(0,4);
-						String paymentDateMonth = rs3.getString(2).substring(4,6);
-						String paymentDateDay = rs3.getString(2).substring(6,8);
-						System.out.println("YEAR !!!!!! "+ paymentDateYear);
-						System.out.println("MONTH !!!!!" + paymentDateMonth);
-						System.out.println("DAY !!!!! "+ paymentDateDay);
-						System.out.println("UserID" + rs3.getString(1));
+					boolean print = true;
+					boolean printFeesNotPaid = true;
+					while (rs3.next() && validStudentAccount) {
+						printFeesNotPaid = false;
+						if(print){
+							out.println("<html>"
+									+ "<body background=welcome.jpg >"
+									+ "<br><br><h1 align=center >"
+									+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
+							print=false;
+						}
 						
-						out.println("<tr><td>" + rs3.getString(2) + "</td><td>"+ rs3.getString(3)
-								+ "</td><td>"+ rs3.getString(4)
+						out.println("<tr><td>" + rs3.getString(2).substring(0,4)+"-"+rs3.getString(2).substring(4,6)+"-"+rs3.getString(2).substring(6,8) + "</td><td>"+ rs3.getString(3)
+								+ "</td><td>"+ rs3.getString(4).substring(0,4)+"-"+rs3.getString(4).substring(4,6)+"-"+rs3.getString(4).substring(6,8)
 								+ "</td></tr>");
+						out.println("</table border=3 ></body></html>");
 					}
-					if(!rs3.next()){
+					if(printFeesNotPaid && validStudentAccount){
+						out.println("<html>"
+								+ "<body background=welcome.jpg >"
+								+ "<br><br><h1 align=center >"
+								+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
+						
 						out.println("<tr><td>" + "Fee not paid" + "</td><td>"+ "Fee not paid"
 								+ "</td><td>"+ "Fee not paid"
 								+ "</td></tr>");
+						out.println("</table border=3 ></body></html>");
+					}
+					
+					ResultSet rs4 = stmt
+							.executeQuery("select Status from login where UserID='"
+									+ userID + "'");
+					
+					while (rs4.next() && validStudentAccount) {
+						out.println("<html>"
+								+ "<body background=welcome.jpg >"
+								+ "<br><br><h1 align=center >"
+								+ "<font color=blue>Student Account Status</font></h1><table border =1 align=center ><tr><th>Account Status</th></tr>");
+						out.println("<tr><td>" + rs4.getString(1) + "</td></tr>");
+						out.println("</table border=3 ></body></html>");
 					}
 				out.println("</table border=3 ></body></html>");
-				out.println("</table border=3 ></body></html>");
 				out.println("<br/><br/>");
-				out.println(" <h2 align=center><a href=./student.jsp>Register a new Student</a><br/></h2>");
-				out.println(" <h2 align=center><a href=./adminsuccess.jsp> Go to Home</a></h2>");
-				System.out.println("==============================");
+				out.println(" <h2 align=center><a href=./dpdsuccess.html> Go to Home</a></h2>");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	public void setSession(Map<String, Object> map) {
+		sessionMap = (SessionMap) map;
+	}
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	public HttpServletRequest getServletRequest() {
+		return this.request;
+	}
+	public void setServletResponse(HttpServletResponse response) {
+		this.response = response;
+	}
+	public HttpServletResponse getServletResponse() {
+		return this.response;
+	}
+
+	public Student getModel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

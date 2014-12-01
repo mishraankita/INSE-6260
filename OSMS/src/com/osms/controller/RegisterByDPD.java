@@ -87,7 +87,7 @@ public class RegisterByDPD extends ActionSupport implements SessionAware,Servlet
 			PrintWriter out = getServletResponse().getWriter();
 			out.println("<html><body><form action=\"./CourseChangeStudentServletByDPD\" method=POST>"
 					+ "<h1 align=center ><font color=blue>Course Registration</font></h1>"
-					+ "<a href=\"./dpdsuccess.jsp\">Return</a>"
+					+ "<a href=\"./dpdsuccess.html\">Return</a>"
 					+ "<br><table border =1 align=center >"
 					+ "<tr><th>Selection</th><th>Course Name</th><th>Schedule</th></tr>");
 

@@ -9,11 +9,6 @@
 <form action="./SearchStudentDetails" method="post">
 	<h1 align="center"><font color="blue" size="6" >Login Page</font></h1>
 <table border="8" align="center">
-<!-- <select name="mydropdown"> -->
-<!-- <option value="Milk">Fresh Milk</option> -->
-<!-- <option value="Cheese">Old Cheese</option> -->
-<!-- <option value="Bread">Hot Bread</option> -->
-<!-- </select> -->
 	<tr>
 		<td >USER ID</td>
 		<td ><input type="text" name="UserID"> </td>

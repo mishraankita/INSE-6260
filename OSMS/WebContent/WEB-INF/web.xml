@@ -24,15 +24,15 @@
 <!--   	<url-pattern>/searchDetails</url-pattern> -->
 <!--   </servlet-mapping> -->
   
-  <servlet>
-   	<servlet-name>SearchStudentDetails</servlet-name>
-   	<servlet-class>com.osms.controller.SearchStudentDetails</servlet-class>
-   </servlet>
+<!--   <servlet> -->
+<!--    	<servlet-name>SearchStudentDetails</servlet-name> -->
+<!--    	<servlet-class>com.osms.controller.SearchStudentDetails</servlet-class> -->
+<!--    </servlet> -->
   
-  <servlet-mapping>
-  	<servlet-name>SearchStudentDetails</servlet-name>
-  	<url-pattern>/SearchStudentDetails</url-pattern>
-  </servlet-mapping>
+<!--   <servlet-mapping> -->
+<!--   	<servlet-name>SearchStudentDetails</servlet-name> -->
+<!--   	<url-pattern>/SearchStudentDetails</url-pattern> -->
+<!--   </servlet-mapping> -->
   
 <!--    <servlet-mapping> -->
 <!--   	<servlet-name>GetStudentInfoServlet</servlet-name> -->
