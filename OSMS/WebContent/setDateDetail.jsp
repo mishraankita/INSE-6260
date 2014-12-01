@@ -44,6 +44,8 @@
 					value="Manage Fee Payment Deadline" /></td>
 			</tr>
 		</table>
+		</form>
+		<form action="./SetAddDropDeadLine" method=POST>
 		<%
 			int courseID = 0;
 			ResultSet rs1 = stmt

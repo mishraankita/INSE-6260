@@ -21,27 +21,26 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.User;
 
 
-public class SetDatesServlet extends ActionSupport implements SessionAware,ServletRequestAware,ServletResponseAware {
+public class SetAddDropDeadLine extends ActionSupport implements SessionAware,ServletRequestAware,ServletResponseAware {
 	private static final long serialVersionUID = 1L;
 	private SessionMap<String, Object> sessionMap;
 	HttpServletResponse response;
 	HttpServletRequest request;
 
-	public void SetDates()  {
+	public void SetDeadLine() {
 		
 		try {
 			Connection con = DBConnection.getConnection();
 			PreparedStatement updateData = null;
-				 String newDate = request.getParameter("Manage Fee Payment Deadline");
-				 System.out.println("Value of newDate issssssssssssssssss " +newDate);
-				 String userID = "0";
+				 String newDate = request.getParameter("Manage course Add/Drop Deadline");
+				 String CourseID = "0";
 				    String updateString =
-				            "update feepayment " +
-				            "set PaymentFeeDeadLine = ? where UserID = ?";
+				            "update courseoffered " +
+				            "set AddDropDeadline = ? where CourseID = ?";
 				    
 				    updateData = con.prepareStatement(updateString);
 				    updateData.setString(1, newDate);
-				    updateData.setString(2, userID);
+				    updateData.setString(2, CourseID);
 				 
 				 updateData.executeUpdate();
 				 //con.commit();

@@ -49,15 +49,15 @@
 <!--   	<url-pattern>/ManageStudentDetails</url-pattern> -->
 <!--   </servlet-mapping> -->
   
-  <servlet>
-   	<servlet-name>SetDatesServlet</servlet-name>
-   	<servlet-class>com.osms.controller.SetDatesServlet</servlet-class>
-   </servlet>
+<!--   <servlet> -->
+<!--    	<servlet-name>SetDatesServlet</servlet-name> -->
+<!--    	<servlet-class>com.osms.controller.SetDatesServlet</servlet-class> -->
+<!--    </servlet> -->
   
-  <servlet-mapping>
-  	<servlet-name>SetDatesServlet</servlet-name>
-  	<url-pattern>/SetDates</url-pattern>
-  </servlet-mapping>
+<!--   <servlet-mapping> -->
+<!--   	<servlet-name>SetDatesServlet</servlet-name> -->
+<!--   	<url-pattern>/SetDates</url-pattern> -->
+<!--   </servlet-mapping> -->
   
   
   <filter>
