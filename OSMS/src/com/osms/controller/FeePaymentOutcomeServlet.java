@@ -24,6 +24,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.User;
+import com.osms.model.CreditCardValidator;
 
 /**
  * Servlet implementation class FeePaymentOutcome
@@ -40,6 +41,18 @@ public class FeePaymentOutcomeServlet extends ActionSupport implements SessionAw
 		//HttpSession session = request.getSession();
 		String userID = (String) sessionMap.get("UserID");
 		
+		String creditCardNumber = httpServletRequest.getParameter("creditcardnumber");
+		String expiryMonthYear = httpServletRequest.getParameter("expirymonthyear");
+		String cardHolderName = httpServletRequest.getParameter("cardholdername");
+		
+		CreditCardValidator creditCard = new CreditCardValidator(
+				creditCardNumber, expiryMonthYear, cardHolderName);
+		StringBuilder error = new StringBuilder();
+		if(!creditCard.Validate(error)){
+			httpServletRequest.setAttribute("resultsMessage", error.toString());
+			return "feePaymentOutcome";
+		}
+
 		String message = "Connection failed. Please try again later";
 
 		try {

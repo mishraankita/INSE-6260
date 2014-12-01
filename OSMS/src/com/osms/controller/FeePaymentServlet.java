@@ -83,11 +83,21 @@ public class FeePaymentServlet extends ActionSupport implements SessionAware,
 					Date now = new Date();
 					if (now.before(deadline)) {
 						message = "Total fees are 5,000.00";
+						if(amountAlreadyPaid > 0){
+							message += ". Amount in account is "
+									+ amountAlreadyPaid + ".00. Amount due is "
+									+ (5000 - amountAlreadyPaid) + ".00";
+						}
 						paymentStatus = DUE;
 					} else {
 						message = "Payment deadline was "
 								+ deadline.toString()
 								+ " Total fees are 5,000.00 plus 75.00 late fee";
+						if (amountAlreadyPaid > 0)
+							message += "Amount in account is "
+									+ amountAlreadyPaid + ".00.";
+						message += " Amount due is "
+								+ (5075 - amountAlreadyPaid) + ".00";
 						paymentStatus = DUE;
 					}
 				}
