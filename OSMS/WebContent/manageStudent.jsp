@@ -17,7 +17,7 @@
 String userID = "";
 </jsp:declaration>
 <jsp:scriptlet>
-userID = request.getParameter("UserID");
+userID = (String)session.getAttribute("UserID");
 </jsp:scriptlet>
   <% 
   Connection con = DBConnection.getConnection();

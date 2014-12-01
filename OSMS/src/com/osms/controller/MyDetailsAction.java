@@ -34,7 +34,7 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 //						+ "<font color=blue>Student Details</font></h1><br><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th> <th>Address</th><th>Phone Number</th> <th>Email</th><th>Session Joined</th><th>Department ID</th><th>Enrolled in program</th><th>Date of birth</th></tr>");
 				while (rs.next()) {
 					student.setUserID(rs.getInt(1));
-					student.setFirstName(rs.getString(2));
+					student.setFirstname(rs.getString(2));
 					student.setLastname(rs.getString(3));
 					student.setAddress(rs.getString(4));
 					student.setPhoneNumber(rs.getInt(5));
@@ -78,7 +78,6 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 			return "failure";
 		}
 	}
-
 
 	public void setSession(Map<String, Object> map) {
 		sessionMap = (SessionMap) map;
