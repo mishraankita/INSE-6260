@@ -64,12 +64,21 @@ public class CourseChangeStudentServlet extends ActionSupport implements Servlet
 						.executeQuery("select * from courseoffered where CourseID = "
 								+ tokens[1]);
 				if (rs.next()) {
-					String sessionRegisteredIn = rs.getString("sessionOffered");
+					String sessionRegisteredIn = rs.getString("SessionOffered");
 					String schedule = rs.getString("Schedule");
+					int classSize = rs.getInt("CapacityOfStudent");
+					classSize++;
 					query = "INSERT INTO coursetaken VALUES (" + tokens[2]
 							+ "," + tokens[1] + "," + null + ",\""
 							+ sessionRegisteredIn + "\",\"" + schedule + "\");";
 					stmt.executeUpdate(query);
+					String updateStatement = "UPDATE courseoffered SET CapacityOfStudent = "
+							+ classSize
+							+ " WHERE CourseID = "
+							+ tokens[1]
+							+ ";";
+					stmt.executeUpdate(updateStatement);
+
 					result = "success";
 					message = "The course was successfully added";
 				}
@@ -78,6 +87,19 @@ public class CourseChangeStudentServlet extends ActionSupport implements Servlet
 				query = "DELETE FROM coursetaken WHERE UserID = " + tokens[2]
 						+ " AND CourseID = " + tokens[1] + ";";
 				stmt.executeUpdate(query);
+				rs = stmt
+						.executeQuery("select * from courseoffered where CourseID = "
+								+ tokens[1]);
+				if (rs.next()) {
+					int classSize = rs.getInt("CapacityOfStudent");
+					classSize--;
+					String updateStatement = "UPDATE courseoffered SET CapacityOfStudent = "
+							+ classSize
+							+ " WHERE CourseID = "
+							+ tokens[1]
+							+ ";";
+					stmt.executeUpdate(updateStatement);
+				}
 				result = "success";
 				message = "The course was successfully dropped";
 			}
