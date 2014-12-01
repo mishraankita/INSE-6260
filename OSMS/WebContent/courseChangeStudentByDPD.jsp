@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body background="new.jpg">
-<form action="./dpdsuccess.jsp" method=POST>
-		<input value = "Registration Output" name = "resultsMessage">
-</form>
+
 <form>
-<a href="./dpdsuccess.jsp">Close</a>
 	<br><%=(String)request.getAttribute("resultsMessage")%><br>
 </form>
 <form action="./RegisterByDPD" method=POST >

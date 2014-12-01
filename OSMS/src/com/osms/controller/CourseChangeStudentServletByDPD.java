@@ -24,7 +24,6 @@ public class CourseChangeStudentServletByDPD extends ActionSupport implements Se
 	HttpServletRequest request;
 	String result;
 	
-	
 	public String changeCourseByDPD() {
 		String studentUserID = (String) sessionMap.get("studentUserID");
 		String action = "Close";
@@ -61,30 +60,45 @@ public class CourseChangeStudentServletByDPD extends ActionSupport implements Se
 				if (rs.next()) {
 					String sessionRegisteredIn = rs.getString("sessionOffered");
 					String schedule = rs.getString("Schedule");
+					int classSize = rs.getInt("CapacityOfStudent");
+					classSize++;
 					query = "INSERT INTO coursetaken VALUES (" + tokens[2]
 							+ "," + tokens[1] + "," + null + ",\""
 							+ sessionRegisteredIn + "\",\"" + schedule + "\");";
 					stmt.executeUpdate(query);
+					String updateStatement = "UPDATE courseoffered SET CapacityOfStudent = "
+							+ classSize
+							+ " WHERE CourseID = "
+							+ tokens[1]
+							+ ";";
+					stmt.executeUpdate(updateStatement);
+
 					result = "success";
 					message = "The course was successfully added";
 				}
 			}
-//			if (tokens[0].equals("Drop")) {
-//				query = "DELETE FROM coursetaken WHERE UserID = " + tokens[2]
-//						+ " AND CourseID = " + tokens[1] + ";";
-//				stmt.executeUpdate(query);
-//				result = "success";
-//				message = "The course was successfully dropped";
-//			}
 			
 			if (tokens[0].equals("Drop")) {
+//				query = "DELETE FROM coursetaken WHERE UserID = " + tokens[2]
 				query = "DELETE FROM coursetaken WHERE UserID = " + studentUserID
 						+ " AND CourseID = " + tokens[1] + ";";
 				stmt.executeUpdate(query);
+				rs = stmt
+						.executeQuery("select * from courseoffered where CourseID = "
+								+ tokens[1]);
+				if (rs.next()) {
+					int classSize = rs.getInt("CapacityOfStudent");
+					classSize--;
+					String updateStatement = "UPDATE courseoffered SET CapacityOfStudent = "
+							+ classSize
+							+ " WHERE CourseID = "
+							+ tokens[1]
+							+ ";";
+					stmt.executeUpdate(updateStatement);
+				}
 				result = "success";
 				message = "The course was successfully dropped";
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			result = "success";
