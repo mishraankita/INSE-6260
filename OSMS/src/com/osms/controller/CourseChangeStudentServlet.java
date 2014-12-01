@@ -23,9 +23,7 @@ public class CourseChangeStudentServlet extends ActionSupport implements Servlet
 	private SessionMap<String, Object> sessionMap;
 	HttpServletRequest request;
 	String result;
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+
 	public CourseChangeStudentServlet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -83,6 +81,7 @@ public class CourseChangeStudentServlet extends ActionSupport implements Servlet
 					message = "The course was successfully added";
 				}
 			}
+
 			if (tokens[0].equals("Drop")) {
 				query = "DELETE FROM coursetaken WHERE UserID = " + tokens[2]
 						+ " AND CourseID = " + tokens[1] + ";";
