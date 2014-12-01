@@ -164,7 +164,7 @@ ServletRequestAware,ServletResponseAware {
 					
 					Employee e = new Employee();
 					e.setUserID(rs.getInt(1));
-					e.setFirstName(rs.getString(2));
+					e.setFirstname(rs.getString(2));
 					e.setLastname(rs.getString(3));
 					e.setAddress(rs.getString(4));
 					e.setEmail(rs.getString(5));

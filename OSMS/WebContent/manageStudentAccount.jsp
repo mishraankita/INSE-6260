@@ -9,8 +9,9 @@
 <title>student registration</title>
 </head>
 <body background="welcome.jpg">
-<h1 align="center"><font color="blue">Manage Student/DPD information</font></h1>
-<form method="post" action="./manageStudent">
+<h1 align="center"><font color="blue">Manage Student information</font></h1>
+
+<s:form method="post" action="./manageStudent">
 <table align="center">  
 	<tr>
 		<%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%>
@@ -21,15 +22,12 @@
 	</tr>
 	<tr>
 		<td>
-				<s:submit value="Manage student"/>
-		</td>
-		<td>
-			<s:submit value="Manage DPD" action="./manageDPD"/>		
+				<s:submit value="Manage student" />
 		</td>
 	</tr>
 </table>
-</form>
-<!--  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3> -->
+</s:form>
+ <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 <!--   <h3 align="center"><a href="./manageStudent.jsp">Manage Student</a><br/></h3> -->
 <!--  <h3 align=center><a href=./dpdManage.jsp>Manage DPD</a><br/></h3> -->
 </body>
