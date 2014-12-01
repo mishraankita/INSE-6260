@@ -103,7 +103,7 @@
 	</tr>
 	<tr>
 		<td>Account Type :</td>
-		<td><input type="text" name="accountType" value="student" readonly="readonly" /></td>
+		<td><input type="text" name="accountType" value="dpd" readonly="readonly" /></td>
 	</tr>
 	<tr>
 		<td>Status</td>
