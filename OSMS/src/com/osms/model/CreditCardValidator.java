@@ -5,17 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CreditCardValidator {
-	private String cardNumber;
-	private String expiryDate;
-	private String name;
-	
-	public CreditCardValidator(String cardNumber, String expiryDate, String name) {
-		this.cardNumber = cardNumber;
-		this.expiryDate = expiryDate;
-		this.name = name;
-	}
 
-	public boolean Validate(StringBuilder error) {
+	public static boolean Validate(StringBuilder error, String cardNumber,
+			String expiryDate, String name) {
 		String pattern = "\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}";
 		if (!cardNumber.matches(pattern)) {
 			error.append("Error in credit card number");

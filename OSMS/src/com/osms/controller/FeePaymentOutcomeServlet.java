@@ -45,10 +45,9 @@ public class FeePaymentOutcomeServlet extends ActionSupport implements SessionAw
 		String expiryMonthYear = httpServletRequest.getParameter("expirymonthyear");
 		String cardHolderName = httpServletRequest.getParameter("cardholdername");
 		
-		CreditCardValidator creditCard = new CreditCardValidator(
-				creditCardNumber, expiryMonthYear, cardHolderName);
 		StringBuilder error = new StringBuilder();
-		if(!creditCard.Validate(error)){
+		if (!CreditCardValidator.Validate(error, creditCardNumber,
+				expiryMonthYear, cardHolderName)) {
 			httpServletRequest.setAttribute("resultsMessage", error.toString());
 			return "feePaymentOutcome";
 		}
@@ -74,6 +73,9 @@ public class FeePaymentOutcomeServlet extends ActionSupport implements SessionAw
 			if (rs.next())
 				paymentDeadline = rs.getString("PaymentFeeDeadLine");
 
+			if (now.compareTo(paymentDeadline)<0)
+				amountPaid = "5075";
+			
 			boolean recordExists = false;
 			rs = stmt
 					.executeQuery("select * from feepayment where UserID = " + userID);
