@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,7 +19,8 @@
 <form action="./FeePaymentServlet" method=POST >
  <input type="submit"  name="submit" value="Pay Fees"/>
  </form>
- <form action="./manageMyAccount.jsp" method=POST >
+ <form action="./searchMyDetails" method=POST >
+ 	
  <input type="submit"  name="submit" value="Account Settings details" />
  </form>
  <form action="./logout.jsp" method=POST>

@@ -20,13 +20,16 @@
 	<action name="MyDetailsServlet" method="getMyDetails"
          class="com.osms.controller.MyDetailsAction">
          <result name="failure"> /failure.html </result>
-         <result name="success"> /StudentDetails.jsp </result>
+         <result name="successStudent"> /StudentDetails.jsp </result>
+         <result name="successDpd"> /dpdDetails.jsp </result>
+<!--          <result name="success"> /StudentDetails.jsp </result> -->
     </action>
 
 	<action name="SearchStudentDetails" method="searchDetails"
          class="com.osms.controller.SearchStudentDetails">
          <result name="failure"> /failure.html </result>
-         <result name="success"> /StudentDetails.jsp </result>
+         <result name="successStudent"> /StudentDetails.jsp </result>
+          <result name="successDpd"> /dpdDetails.jsp </result>
     </action>
     
     <action name="manageStudent" method="getStudentDetails"
@@ -148,6 +151,11 @@
          <result name="regfailure"> /regfailure.jsp </result>
     </action>
 	
+	<action name="searchMyDetails" method="getStudentDetails"
+         class="com.osms.controller.SearchMyDetails">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /ManageStudentDetails.jsp </result>
+    </action>
  
    </package>
 </struts>

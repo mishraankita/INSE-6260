@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.Student;
 
-public class ManageStudentAction extends ActionSupport implements
+public class SearchMyDetails extends ActionSupport implements
 		ModelDriven<Student>, SessionAware, ServletRequestAware {
 	private static final long serialVersionUID = 1L;
 	private SessionMap<String, Object> sessionMap;
@@ -24,7 +24,7 @@ public class ManageStudentAction extends ActionSupport implements
 	private Student student = new Student();
 
 	public String getStudentDetails() {
-		String userID = request.getParameter("userID");
+		String userID = (String) sessionMap.get("UserID");
 		// String userID = String.valueOf(student.getUserID());
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<my userID  is : " + userID);
 
@@ -132,15 +132,7 @@ public class ManageStudentAction extends ActionSupport implements
 			
 			String message = "Record Successfully Updated !!";
 			request.setAttribute("resultsMessage", message);
-			//return "success";
-			
-			String accountType = (String) sessionMap.get("accountType");
-			if (accountType.equals("student")) {
-				return "successStudent";
-			} else {
-				return "successDpd";
-			}
-			
+			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "failure";

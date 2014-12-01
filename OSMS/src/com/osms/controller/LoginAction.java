@@ -60,6 +60,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>,
 							&& AccountType.equalsIgnoreCase(dbAccountType)) {
 						updateLoginAttemptCount(0, dbUserID);
 						sessionMap.put("UserID", String.valueOf(user.getUserID()));
+						sessionMap.put("accountType", String.valueOf(user.getAccountType()));
 						if (AccountType.equals("student")) {
 							return "studentsuccess";
 						} else if (AccountType.equals("admin")) {
