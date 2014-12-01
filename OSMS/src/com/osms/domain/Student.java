@@ -2,7 +2,7 @@ package com.osms.domain;
 public class Student {
 	private int userID , phoneNumber , departmentID, CourseID, PaymentAmount;
 	private String  firstname, lastname, address, email, sessionJoined, status,
-			enrollProgram, dob,GradesObtained, sessionRegisterIn,schedule, PaymentDate,PaymentFeeDeadLine;
+			enrollProgram, dob,GradesObtained, sessionRegisterIn,schedule, PaymentDate,PaymentFeeDeadLine,password,securityQuestion,answer;
 	private Boolean feesPaid;
 	
 	public int getUserID() {
@@ -24,13 +24,13 @@ public class Student {
 	public void setDepartmentID(int departmentID) {
 		this.departmentID = departmentID;
 	}
-	public String getFirstName() {
+	public String getFirstname() {
 		return firstname;
 	}
-	public void setFirstName(String firstname) {
+	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	public String getLastName() {
+	public String getLastname() {
 		return lastname;
 	}
 	public void setLastname(String lastname) {
@@ -138,5 +138,29 @@ public class Student {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

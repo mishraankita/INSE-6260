@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page session="true" %>
 <html>
 <head>
@@ -5,20 +9,23 @@
 <title>student registration</title>
 </head>
 <body background="welcome.jpg">
-<form action="manageStudent.jsp" method=POST>
 <h1 align="center"><font color="blue">Manage Student/DPD information</font></h1>
-<table align="center">      
+<form method="post" action="./manageStudent">
+<table align="center">  
 	<tr>
-	<td>Enter the UserID of account you want to edit</td>
-	<td><input type="text" name= "UserID" /></td>
+		<%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%>
+	</tr>    
+	<tr>
+		<td>Enter the UserID of account you want to edit</td>
+		<td><input type="text" name=userID></input></td>
 	</tr>
 	<tr>
-	<td>
-	<input type="submit" name= "action" value="manageStudent" onclick="form.action='manageStudent.jsp';">
-	</td>
-	<td>
-	<input type="submit" name= "action" value="manageDPD" onclick="form.action='manageDpd.jsp';">
-	</td>
+		<td>
+				<s:submit value="Manage student"/>
+		</td>
+		<td>
+			<s:submit value="Manage DPD" action="./manageDPD"/>		
+		</td>
 	</tr>
 </table>
 </form>

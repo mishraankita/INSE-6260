@@ -46,7 +46,7 @@ public class SearchStudentDetails extends HttpServlet {
 
 					Student s = new Student();
 					s.setUserID(rs.getInt(1));
-					s.setFirstName(rs.getString(2));
+					s.setFirstname(rs.getString(2));
 					s.setLastname(rs.getString(3));
 					s.setAddress(rs.getString(4));
 					s.setPhoneNumber(rs.getInt(5));
@@ -59,7 +59,7 @@ public class SearchStudentDetails extends HttpServlet {
 
 					System.out.println("UserID" + s.getUserID());
 					out.println("<tr><td>" + s.getUserID() + "</td><td>"
-							+ s.getFirstName() + "</td><td>" + s.getLastName()
+							+ s.getFirstname() + "</td><td>" + s.getLastname()
 							+ "</td><td>" + s.getAddress() + "</td><td>"
 							+ s.getPhoneNumber() + "</td><td>" + s.getEmail()
 							+ "</td><td>" + s.getSessionJoined() + "</td><td>"

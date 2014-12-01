@@ -22,7 +22,19 @@
          <result name="failure"> /failure.html </result>
          <result name="success"> /StudentDetails.jsp </result>
     </action>
-
+    
+    <action name="manageStudent" method="getStudentDetails"
+         class="com.osms.controller.ManageStudentAction">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /ManageStudentDetails.jsp </result>
+    </action>
+    
+    <action name="updateStudent" method="updateStudent"
+         class="com.osms.controller.ManageStudentAction">
+         <result name="success"> /manageStudentOrDpdAccount.jsp </result>
+         <result name="failure"> /failure.jsp </result>
+    </action>
+	
 
  	<action name="RegistrationByDpd">
          <result> /RegistrationByDpd.jsp </result>
