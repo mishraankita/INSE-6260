@@ -53,7 +53,8 @@
     
     <action name="updateStudent" method="updateStudent"
          class="com.osms.controller.ManageStudentAction">
-         <result name="success"> /manageStudentAccount.jsp </result>
+         <result name="successStudent"> /studentsuccess.jsp </result>
+         <result name="successAdmin"> /manageStudentAccount.jsp </result>
          <result name="failure"> /failure.jsp </result>
     </action>
 
@@ -81,9 +82,11 @@
          class="com.osms.controller.RecoverPasswordAction">
          <result name="failure"> /failure.html </result>
          <result name="accountLocked"> /accountLocked.html </result>
-         <result name="studentsuccess"> /studentsuccess.jsp </result>
+<!--          <result name="studentsuccess"> /studentsuccess.jsp </result> -->
          <result name="adminsuccess"> /adminsuccess.jsp </result>
          <result name="dpdsuccess"> /dpdsuccess.html </result>
+         <result name="studentsuccessreset"> /resetPassword.jsp </result>
+         
     </action>
        
 	<action name="RegisterByDPD" method="registerByDPD"
@@ -169,6 +172,11 @@
          <result name="failure"> /failure.html </result>
          <result name="success"> /ManageStudentDetails.jsp </result>
     </action>
- 
+
+	<action name="resetPassword" method="updatePassword"
+         class="com.osms.controller.ResetPassword">
+         <result name="failure"> /failure.html </result>
+         <result name="success"> /logout.jsp </result>
+    </action>
    </package>
 </struts>

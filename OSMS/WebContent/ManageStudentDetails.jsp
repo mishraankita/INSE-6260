@@ -147,7 +147,7 @@
 		<td><s:textfield name="password" label="Password :" value="%{password}"/></td>
 	</tr>
 	<tr>
-		<td><s:textfield name="securityQuestion" label="securityQuestion :" value="%{securityQuestion}"/></td>
+		<td><s:textfield name="securityQuestion" label="securityQuestion :" readonly="true" value="%{securityQuestion}"/></td>
 	</tr>
 	<tr>
 		<td><s:textfield name="answer" label="answer :" value="%{answer}"/></td>

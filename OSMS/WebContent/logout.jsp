@@ -7,12 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body background="new.jpg">
-<h1>Thank you</h1>
+<table>
+	<tr>
+		<%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%>
+	</tr>    
+</table>
 <%
 		session = request.getSession(false);
 		if(session!=null)
 		session.invalidate();
 %>
- <h3 align="center"><a href="./welcome.html">Login</a></h3>
+ <h3 align="center"><a href="./welcome.html"><font color="white">Login</font></a></h3>
 </body>
 </html>

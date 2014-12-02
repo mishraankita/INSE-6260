@@ -24,8 +24,8 @@
 		</tr>
 		<tr>
 			<td><s:property value="userID"/></td>
-			<td><s:property value="firstName"/> </td>
-			<td><s:property value="lastName"/></td>
+			<td><s:property value="firstname"/> </td>
+			<td><s:property value="lastname"/></td>
 			<td><s:property value="address"/></td>
 			<td><s:property value="phoneNumber"/></td>
 			<td><s:property value="email"/></td>

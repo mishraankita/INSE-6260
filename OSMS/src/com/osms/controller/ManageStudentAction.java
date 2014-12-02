@@ -137,8 +137,9 @@ public class ManageStudentAction extends ActionSupport implements
 			String accountType = (String) sessionMap.get("accountType");
 			if (accountType.equals("student")) {
 				return "successStudent";
-			} else {
-				return "successDpd";
+			
+			}else  {
+				return "successAdmin";
 			}
 			
 		} catch (Exception e) {
