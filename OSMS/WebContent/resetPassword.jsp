@@ -7,13 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Forget password page</title>
 </head>
-<body background="campus.jpg">
+<body background="new.jpg">
 <script type="text/JavaScript">
 	function validateForm()
 {		   
-   var x = document.forms["login"]["Password"].value;
-   var y = document.forms["login"]["Password2"].value;
-   if( x == y )
+   var x = document.forms["resetPassword"]["Password"].value;
+   var y = document.forms["resetPassword"]["Password2"].value;
+   if( x != y )
    {
      alert( "Confirm password and new password do not match" );
      return false;
@@ -21,7 +21,7 @@
    return true;
 }
 	</script>
-<form action="./resetPassword" method="post" onsubmit="return validateForm();">
+<form name ="resetPassword" action="./resetPassword" method="post" onsubmit="return validateForm()">
 	<h1 align="center"><font color="blue" size="6" >Security Question</font></h1>
 <table border="8" align="center">
 	<tr>

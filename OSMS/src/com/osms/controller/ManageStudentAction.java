@@ -119,14 +119,15 @@ public class ManageStudentAction extends ActionSupport implements
 			updateData.executeUpdate();
 
 			updateString = "update login "
-					+ "set Status = ?,Password = ?, SecurityQuestion = ?, Answer = ?"
+					+ "set Status = ?,Password = ?, SecurityQuestion = ?, Answer = ?, LoginAttemptCount = ?"
 					+ " where UserID = ?";
 			updateData = con.prepareStatement(updateString);
 			updateData.setString(1, student.getStatus());
 			updateData.setString(2, student.getPassword());
 			updateData.setString(3, student.getSecurityQuestion());
 			updateData.setString(4, student.getAnswer());
-			updateData.setLong(5, student.getUserID());
+			updateData.setString(5, "0");
+			updateData.setLong(6, student.getUserID());
 
 			updateData.executeUpdate();
 			

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="new.jpg">
 <h1> student registration failed</h1>
 <a href="./student.jsp">register a new student</a>
 <a href="./adminsuccess.jsp">Go to Home</a>

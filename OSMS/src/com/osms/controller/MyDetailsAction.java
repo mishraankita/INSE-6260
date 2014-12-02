@@ -1,21 +1,29 @@
 package com.osms.controller;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.Student;
 
-public class MyDetailsAction extends ActionSupport implements
-		ModelDriven<Student>, SessionAware {
+public class MyDetailsAction extends ActionSupport implements ModelDriven<Student> , SessionAware,ServletRequestAware,ServletResponseAware { 
+
 	private static final long serialVersionUID = 1L;
 	private SessionMap<String, Object> sessionMap;
+	HttpServletResponse response;
+	HttpServletRequest request;
 	Student student = new Student();
 
 	public String getMyDetails() {
@@ -25,6 +33,7 @@ public class MyDetailsAction extends ActionSupport implements
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
+			PrintWriter out = getServletResponse().getWriter();
 			// out.println(" <h2 align=center><a href=./student.jsp>VIEW MY Account</a><br/></h2>");
 			ResultSet rs = stmt
 					.executeQuery("select * from studentdetails where UserID='"
@@ -53,7 +62,22 @@ public class MyDetailsAction extends ActionSupport implements
 				student.setCourseID(rs2.getInt(2));
 				student.setGradesObtained(rs2.getString(3));
 			}
-
+			
+			
+//			ResultSet rs2 = stmt
+//					.executeQuery("select * from coursetaken where UserID='"
+//							+ userID + "'");
+//			while (rs2.next()) {
+//					out.println("<html>"
+//							+ "<body background=welcome.jpg >"
+//							+ "<br><br><h1 align=center >"
+//							+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
+//				System.out.println("UserID" + rs2.getString(1));
+//				out.println("<tr><td>" + rs2.getString(2) + "</td><td>"+ rs2.getString(3)
+//						+ "</td></tr>");
+//			}
+//				out.println("</table border=3 ></body></html>");
+			
 			ResultSet rs3 = stmt
 					.executeQuery("select * from feepayment where UserID='"
 							+ userID + "'");
@@ -91,7 +115,19 @@ public class MyDetailsAction extends ActionSupport implements
 	public void setSession(Map<String, Object> map) {
 		sessionMap = (SessionMap) map;
 	}
-
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	public HttpServletRequest getServletRequest() {
+		return this.request;
+	}
+	public void setServletResponse(HttpServletResponse response) {
+		this.response = response;
+	}
+	public HttpServletResponse getServletResponse() {
+		return this.response;
+	}
+	
 	public Student getModel() {
 		return student;
 	}

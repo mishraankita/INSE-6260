@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Student Details</title>
 </head>
-<body background=welcome.jpg>
+<body background=new.jpg>
 	<br><h1 align=center ><font color=blue>Student Details</font></h1>
 	<table border =1 align=center >
 		<tr>

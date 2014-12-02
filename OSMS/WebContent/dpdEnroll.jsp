@@ -7,6 +7,95 @@
 <title>DPD registration</title>
 </head>
 <body background="new.jpg">
+
+<script type="text/JavaScript">
+
+	function validateForm()
+{
+ var a = document.forms["studentEnroll"]["userID"].value;
+   if( a == null || a == "" )
+   {
+     alert( "Please provide your User ID!" );
+     return false;
+   }
+   var b = document.forms["studentEnroll"]["firstname"].value;
+   if( b == null || b == "" )
+   {
+     alert( "Please provide firstname!" );
+     return false;
+   }
+   var c = document.forms["studentEnroll"]["lastname"].value;
+   if( c == null || c == "" )
+   {
+     alert( "Please provide lastname " );
+     return false;
+   }
+    var d = document.forms["studentEnroll"]["address"].value;
+   if( d == null || d == "" )
+   {
+     alert( "Please provide address!" );
+     return false;
+   }
+ 
+     var f = document.forms["studentEnroll"]["email"].value;
+   if( f == null || f == "" )
+   {
+     alert( "Please provide email " );
+     return false;
+   }
+   
+   var atpos = f.indexOf("@");
+   var dotpos = f.lastIndexOf(".");
+   if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+       alert("Not a valid e-mail address");
+       return false;
+   }
+   
+    var i = document.forms["studentEnroll"]["enrollProgram"].value;
+   if( i == null || i == "" )
+   {
+     alert( "Please provide enrollProgram!" );
+     return false;
+   }
+   var j = document.forms["studentEnroll"]["dob"].value;
+   if( j == null || j == "" )
+   {
+     alert( "Please provide Date of Birth " );
+     return false;
+   }
+    var k = document.forms["studentEnroll"]["password"].value;
+   if( k == null || k == "" )
+   {
+     alert( "Please provide password " );
+     return false;
+   }
+    var l = document.forms["studentEnroll"]["securityQuestion"].value;
+   if( l == null || l == "" )
+   {
+     alert( "Please provide securityQuestion " );
+     return false;
+   }
+    var m = document.forms["studentEnroll"]["answer"].value;
+   if( m == null || m == "" )
+   {
+     alert( "Please provide answer " );
+     return false;
+   }
+    var n = document.forms["studentEnroll"]["accountType"].value;
+   if( n == null || n == "" )
+   {
+     alert( "Please provide accountType " );
+     return false;
+   }
+    var o = document.forms["studentEnroll"]["status"].value;
+   if( o == null || o == "" )
+   {
+     alert( "Please provide status " );
+     return false;
+   }
+   return true;
+}
+	</script>
 <form action="./enroll" method=POST>
 <h1 align="center"><font color="black">DPD Information Form</font></h1>
 <table align="center">      
@@ -54,8 +143,8 @@
 		</select></td>
 	</tr>
 </table>
+<pre><input type="submit" name="button_1"  value="SUBMIT"></pre>
 </form>
-	<pre><input type="submit" name="button_1"  value="SUBMIT"></pre>
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 </body>
 </html>

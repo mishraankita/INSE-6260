@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>student registration</title>
 </head>
-<body background="welcome.jpg">
+<body background="new.jpg">
 	<H1>Fetching Data From a Database</H1>
 	<form action="./SetDates" method=POST>
 		<h1 align="center">

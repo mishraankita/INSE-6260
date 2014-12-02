@@ -47,6 +47,14 @@
      alert( "Please provide email " );
      return false;
    }
+   
+   var atpos = f.indexOf("@");
+   var dotpos = f.lastIndexOf(".");
+   if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+       alert("Not a valid e-mail address");
+       return false;
+   }
+   
     var g = document.forms["studentEnroll"]["sessionJoined"].value;
    if( g == null || g == "" )
    {
@@ -71,32 +79,32 @@
      alert( "Please provide Date of Birth " );
      return false;
    }
-    var j = document.forms["studentEnroll"]["password"].value;
-   if( j == null || j == "" )
+    var k = document.forms["studentEnroll"]["password"].value;
+   if( k == null || k == "" )
    {
      alert( "Please provide password " );
      return false;
    }
-    var j = document.forms["studentEnroll"]["securityQuestion"].value;
-   if( j == null || j == "" )
+    var l = document.forms["studentEnroll"]["securityQuestion"].value;
+   if( l == null || l == "" )
    {
      alert( "Please provide securityQuestion " );
      return false;
    }
-    var j = document.forms["studentEnroll"]["answer"].value;
-   if( j == null || j == "" )
+    var m = document.forms["studentEnroll"]["answer"].value;
+   if( m == null || m == "" )
    {
      alert( "Please provide answer " );
      return false;
    }
-    var j = document.forms["studentEnroll"]["accountType"].value;
-   if( j == null || j == "" )
+    var n = document.forms["studentEnroll"]["accountType"].value;
+   if( n == null || n == "" )
    {
      alert( "Please provide accountType " );
      return false;
    }
-    var j = document.forms["studentEnroll"]["status"].value;
-   if( j == null || j == "" )
+    var o = document.forms["studentEnroll"]["status"].value;
+   if( o == null || o == "" )
    {
      alert( "Please provide status " );
      return false;
@@ -175,36 +183,6 @@
 		  <option value="0">Inactive</option>
 		</select></td>
 	</tr>
-	
-	
-	
-	
-	
-<!-- 	<tr> -->
-<!-- 		<td>Curriculum :</td> -->
-<!-- 		<td> -->
-<!-- 		<select name="Curriculum"> -->
-<!-- 		  <option value="CBSC">CBSC</option> -->
-<!-- 		  <option value="ICSC">ICSC</option> -->
-<!-- 		</select> -->
-<!-- 	</td> -->
-<!-- 	</tr> -->
-	
-<!-- 	<tr> -->
-<!-- 		<td>Grade :</td> -->
-<!-- 		<td><select name="Grade"> -->
-<!-- 		  <option value="1">Class 1</option> -->
-<!-- 		  <option value="2">Class 2</option> -->
-<!-- 		  <option value="3">Class 3</option> -->
-<!-- 		  <option value="4">Class 4</option> -->
-<!-- 		  <option value="5">Class 5</option> -->
-<!-- 		  <option value="6">Class 6</option> -->
-<!-- 		  <option value="7">Class 7</option> -->
-<!-- 		  <option value="8">Class 8</option> -->
-<!-- 		  <option value="9">Class 9</option> -->
-<!-- 		  <option value="10">Class 10</option> -->
-<!-- 		</select></td> -->
-<!-- 	</tr> -->
 </table>
 	<pre >
 	<input type="submit" value="SUBMIT"/ >

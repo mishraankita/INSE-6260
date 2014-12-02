@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>login page</title>
 </head>
-<body  background="campus.jpg">
+<body background="new.jpg">
 <script type="text/JavaScript">
 </script>
 <form action="./SearchStudentDetails" method="post">

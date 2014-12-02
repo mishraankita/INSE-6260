@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Course Registration</title>
 </head>
-<body>
+<body background="new.jpg">
 <form action="./CourseRegistrationServlet" method=POST>
 <input type="Submit" value="Return">
 <%=session.getAttribute("StudentName")%>
