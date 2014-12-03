@@ -4,7 +4,10 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -55,6 +58,24 @@ public class CourseRegistrationServlet extends ActionSupport implements SessionA
 						rs.getInt("CapacityOfStudent"));
 			}
 
+			//Determine if Add/Drop deadline has passed
+			String addDropDeadline = null;
+			rs = stmt.executeQuery("Select AddDropDeadline from courseoffered where CourseID = 0");
+			if(rs.next()){
+				addDropDeadline = rs.getString("AddDropDeadline");
+			}
+			// deadline is in format dd/MM/yyyy
+			SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy");
+			Date addDropDeadlineDate = new Date();
+			try {
+				addDropDeadlineDate = ft.parse(addDropDeadline);
+			} catch (ParseException e) {
+				//use current date/time
+			}
+			boolean registrationClosed = addDropDeadlineDate.before(new Date());
+			String registrationCloseText = null;
+			if(registrationClosed) registrationCloseText = " is Closed";
+
 			// Iterate through coursetaken table and addCourseTaken
 			// This will use information loaded in courseOffered
 			rs = stmt.executeQuery("select * from coursetaken where UserID='"
@@ -72,7 +93,9 @@ public class CourseRegistrationServlet extends ActionSupport implements SessionA
 					+ "<form action=\"./studentsuccess.jsp\" method=POST >"
 					+ "<input type=\"submit\"  name=\"submit\" value=\"Return\" /></form>"
 					+ "<form action=\"./CourseChangeStudentServlet\" method=POST>"
-					+ "<h1 align=center ><font color=blue>Course Registration</font></h1>"
+					+ "<h1 align=center ><font color=blue>Course Registration"
+					+ registrationCloseText
+					+ "</font></h1>"
 					+ "<br><table border =1 align=center >"
 					+ "<tr><th>Selection</th><th>Course Name</th><th>Schedule</th></tr>");
 
@@ -85,8 +108,9 @@ public class CourseRegistrationServlet extends ActionSupport implements SessionA
 										// courseName, courseSchedule, courseID
 					continue;
 				String activeState = "disabled";
-				if (tokens[0].equals("Add") || tokens[0].equals("Drop"))
-					activeState = "enabled";
+				if (!registrationClosed)
+					if (tokens[0].equals("Add") || tokens[0].equals("Drop"))
+						activeState = "enabled";
 
 				String name = tokens[0] + "$" + tokens[3] + "$" + userID;
 				String row = "<tr><td><input name= \"" + name
