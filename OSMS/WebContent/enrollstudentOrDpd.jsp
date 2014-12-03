@@ -3,7 +3,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>student registration</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 	<h1 align="center">
 		<font color="black">View Student/DPD information</font>
 	</h1>
@@ -39,5 +40,6 @@
 			</td>
 		</tr>
 	</table>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

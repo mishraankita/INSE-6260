@@ -3,17 +3,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Forget password page</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <script type="text/JavaScript">
 function validateForm()
 {
- var a = document.forms["forgetPassword"]["UserID"].value;
+ var a = document.forms["forgetpassword"]["UserID"].value;
    if( a == null || a == "" )
    {
      alert( "Please provide your User ID!" );
      return false;
    }
-   var b = document.forms["forgetPassword"]["Answer"].value;
+   var b = document.forms["forgetpassword"]["Answer"].value;
    if( b == null || b == "" )
    {
      alert( "Please provide Answer!" );
@@ -22,7 +23,7 @@ function validateForm()
    return true;
 }
 </script>
-<form name = "forgetPassword" action="./RecoverPassword" method="post" onsubmit="return validateForm()">
+<form name = "forgetpassword" action="./RecoverPassword" method="post" onsubmit="return validateForm()">
 	<h1 align="center"><font color="blue" size="6" >Security Question</font></h1>
 <table border="8" align="center">
 	<tr>
@@ -38,5 +39,6 @@ function validateForm()
 	</tr>
 </table>	
 </form>	
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

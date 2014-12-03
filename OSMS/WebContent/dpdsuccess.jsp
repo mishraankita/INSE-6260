@@ -1,14 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+   
+<jsp:include page="header.jsp"/>
 <h1>
-	<font color="black" >Welcome To Home Page</font>
+	<font color="black" >Welcome ${sessionScope.UserID} Home Page</font>
 	</h1>
-</body>
+
 <form action="./searchStudentID.jsp" method=POST >
  <input type="submit"  name="submit" value="View Student Account" />
  </form>
@@ -18,4 +21,7 @@
  <form action="./logout.jsp" method=POST>
           <pre><input type="submit"  name="submit" value=" Logout"/></pre>
 </form>
+
+<jsp:include page="footer.jsp"/>
+</body>
 </html>

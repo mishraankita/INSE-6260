@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DPD registration</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <script type="text/JavaScript">
 
 	function validateForm()
@@ -118,5 +119,6 @@
 	</pre>
 </form>
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
+ <jsp:include page="footer.jsp"/>
 </body>
 </html>

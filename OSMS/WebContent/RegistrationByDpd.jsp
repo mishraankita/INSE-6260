@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<body background="new.jpg">
+
 <title>Insert title here</title>
 </head>
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <form name ="register" action="./RegisterByDPD" method=POST>
 <h1><font color="black" >Welcome To Registration Page</font></h1>
 <table align="center">
@@ -21,4 +23,6 @@
 <!-- <form action="./welcome.html" method=POST> -->
 <!--           <pre><input type="submit"  name="submit" value=" Logout"/></pre> -->
 <!-- </form> -->
+	<jsp:include page="footer.jsp"/>
+	</body>
 </html>

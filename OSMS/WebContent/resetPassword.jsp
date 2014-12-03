@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Forget password page</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <script type="text/JavaScript">
 	function validateForm()
 {		   
@@ -41,5 +42,6 @@
 	</tr>
 </table>	
 </form>	
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

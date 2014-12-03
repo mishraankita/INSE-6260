@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Course Registration</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <form action="./CourseRegistrationServlet" method=POST>
 <input type="Submit" value="Return">
 <%=session.getAttribute("StudentName")%>
@@ -32,5 +33,6 @@
 			</tr>
 		</table>
 	</form>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

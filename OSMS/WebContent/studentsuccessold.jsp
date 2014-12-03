@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Student Login succesfull</title>
 </head>
-<body bgcolor="#fffff">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <%String user = (String)session.getAttribute("userName");  %>
 <h1 align="center">Student <%=user%> Login succesfull</h1>
 <form action="./mydetails" align="center" method="post">
@@ -13,5 +14,6 @@
 </form>
 <!--<p align="center"><a href="./StudentRegistration.html">Get My Details</a></p>
 <p align="center"><a href="./StudentRegistration.html">Student Registration click here</a></p>-->
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

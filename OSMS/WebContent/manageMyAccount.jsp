@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>student registration</title>
 </head>
-<body background="welcome.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <h1 align="center"><font color="blue">Manage Student information</font></h1>
 <jsp:declaration>
 String userID = "";
@@ -39,5 +40,6 @@ String userID = (String) sessionMap.get("UserID");
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 <!--   <h3 align="center"><a href="./manageStudent.jsp">Manage Student</a><br/></h3> -->
 <!--  <h3 align=center><a href=./dpdManage.jsp>Manage DPD</a><br/></h3> -->
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

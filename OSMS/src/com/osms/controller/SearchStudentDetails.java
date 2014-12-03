@@ -54,7 +54,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 				while (rs.next()) {
 					validStudentAccount = true;
 					out.println("<html>"
-							+ "<body background=welcome.jpg >"
+							+ "<body background=bg16.jpg >"
 							+ "<h1 align=center >"
 							+ "<font color=blue>Student Details</font></h1><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th> <th>Address</th><th>Phone Number</th> <th>Email</th><th>Session Joined</th><th>Department ID</th><th>Enrolled in program</th><th>Date of birth</th></tr>");
 					
@@ -88,7 +88,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 					while (rs2.next() && validStudentAccount) {
 						if(printAcademicDetails){
 							out.println("<html>"
-									+ "<body background=welcome.jpg >"
+									+ "<body background=bg16.jpg >"
 									+ "<br><br><h1 align=center >"
 									+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
 							printAcademicDetails=false;
@@ -113,7 +113,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 						printFeesNotPaid = false;
 						if(print){
 							out.println("<html>"
-									+ "<body background=welcome.jpg >"
+									+ "<body background=bg16.jpg >"
 									+ "<br><br><h1 align=center >"
 									+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
 							print=false;
@@ -126,7 +126,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 					}
 					if(printFeesNotPaid && validStudentAccount){
 						out.println("<html>"
-								+ "<body background=welcome.jpg >"
+								+ "<body background=bg16.jpg >"
 								+ "<br><br><h1 align=center >"
 								+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
 						
@@ -142,7 +142,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 					
 					while (rs4.next() && validStudentAccount) {
 						out.println("<html>"
-								+ "<body background=welcome.jpg >"
+								+ "<body background=bg16.jpg >"
 								+ "<br><br><h1 align=center >"
 								+ "<font color=blue>Student Account Status</font></h1><table border =1 align=center ><tr><th>Account Status</th></tr>");
 						out.println("<tr><td>" + rs4.getString(1) + "</td></tr>");
@@ -150,7 +150,7 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 					}
 				out.println("</table border=3 ></body></html>");
 				out.println("<br/><br/>");
-				out.println(" <h2 align=center><a href=./dpdsuccess.html> Go to Home</a></h2>");
+				out.println(" <h2 align=center><a href=./dpdsuccess.jsp> Go to Home</a></h2>");
 		} catch (Exception e) {
 			System.out.println(e);
 		}

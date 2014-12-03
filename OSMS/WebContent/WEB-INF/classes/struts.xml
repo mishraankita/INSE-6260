@@ -10,16 +10,16 @@
       
       <action name="LogonServlet" method="login"
          class="com.osms.controller.LoginAction">
-         <result name="failure"> /failure.html </result>
-         <result name="accountLocked"> /accountLocked.html </result>
+         <result name="failure"> /failure.jsp </result>
+         <result name="accountLocked"> /accountLocked.jsp </result>
          <result name="studentsuccess"> /studentsuccess.jsp </result>
          <result name="adminsuccess"> /adminsuccess.jsp </result>
-         <result name="dpdsuccess"> /dpdsuccess.html </result>
+         <result name="dpdsuccess"> /dpdsuccess.jsp </result>
       </action>
 
 	<action name="MyDetailsServlet" method="getMyDetails"
          class="com.osms.controller.MyDetailsAction">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="successStudent"> /StudentDetails.jsp </result>
          <result name="successDpd"> /dpdDetails.jsp </result>
 <!--          <result name="success"> /StudentDetails.jsp </result> -->
@@ -27,7 +27,7 @@
 
 	<action name="SearchStudentDetails" method="searchDetails"
          class="com.osms.controller.SearchStudentDetails">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="successStudent"> /StudentDetails.jsp </result>
           <result name="successDpd"> /dpdDetails.jsp </result>
     </action>
@@ -35,19 +35,19 @@
     
     <action name="SetDates" method="SetDates"
          class="com.osms.controller.SetDatesServlet">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
     </action>
     
     
     <action name="SetAddDropDeadLine" method="SetDeadLine"
          class="com.osms.controller.SetAddDropDeadLine">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
     </action>
     
     
     <action name="manageStudent" method="getStudentDetails"
          class="com.osms.controller.ManageStudentAction">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /ManageStudentDetails.jsp </result>
     </action>
     
@@ -60,7 +60,7 @@
 
 	 <action name="manageDPD" method="getDPDDetails"
          class="com.osms.controller.ManageDPDAction">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /ManageDPDDetails.jsp </result>
     </action>
     
@@ -80,34 +80,34 @@
 
     <action name="RecoverPassword" method="recoverPassword"
          class="com.osms.controller.RecoverPasswordAction">
-         <result name="failure"> /failure.html </result>
-         <result name="accountLocked"> /accountLocked.html </result>
+         <result name="failure"> /failure.jsp </result>
+         <result name="accountLocked"> /accountLocked.jsp </result>
 <!--          <result name="studentsuccess"> /studentsuccess.jsp </result> -->
          <result name="adminsuccess"> /adminsuccess.jsp </result>
-         <result name="dpdsuccess"> /dpdsuccess.html </result>
+         <result name="dpdsuccess"> /dpdsuccess.jsp </result>
          <result name="studentsuccessreset"> /resetPassword.jsp </result>
          
     </action>
        
 	<action name="RegisterByDPD" method="registerByDPD"
          class="com.osms.controller.RegisterByDPD">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
     </action>
     
     <action name="CourseRegistrationServlet" method="registerCourse"
          class="com.osms.controller.CourseRegistrationServlet">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
     </action> 
     
     <action name="CourseChangeStudentServlet" method="changeCourse"
          class="com.osms.controller.CourseChangeStudentServlet">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /courseChangeStudent.jsp </result>
     </action>
     
      <action name="CourseChangeStudentServletByDPD" method="changeCourseByDPD"
          class="com.osms.controller.CourseChangeStudentServletByDPD">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /courseChangeStudentByDPD.jsp </result>
     </action>
     
@@ -123,16 +123,16 @@
 
 	<action name="AccountSettingDetails" method="accountSettingDetails"
          class="com.osms.controller.GetStudentInfoServlet">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /studentsuccess.jsp </result>
     </action>
     
     <action name="enrollstudentOrDpd">
-         <result> /enrollstudentOrDpd.html </result>
+         <result> /enrollstudentOrDpd.jsp </result>
     </action>
     
     <action name="searchStudentOrDpdDetail" >
-         <result > /searchStudentOrDpdDetail.html </result>
+         <result > /searchStudentOrDpdDetail.jsp </result>
     </action>
     
     <action name="manageStudentAccount" >
@@ -169,14 +169,23 @@
 	
 	<action name="searchMyDetails" method="getStudentDetails"
          class="com.osms.controller.SearchMyDetails">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /ManageStudentDetails.jsp </result>
     </action>
 
 	<action name="resetPassword" method="updatePassword"
          class="com.osms.controller.ResetPassword">
-         <result name="failure"> /failure.html </result>
+         <result name="failure"> /failure.jsp </result>
          <result name="success"> /logout.jsp </result>
     </action>
+    
+    <action name="logout" >
+         <result> /logout.jsp </result>
+    </action>
+    
+    <action name="welcome" >
+         <result> /welcome.jsp </result>
+    </action>
+    
    </package>
 </struts>

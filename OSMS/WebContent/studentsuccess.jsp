@@ -6,10 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <h1 align="center"><font color="black">Welcome ${sessionScope.UserID} Home Page </font></h1>
 <table border="8" align="center">  
-</body>
+
 <form action="./MyDetailsServlet" method=POST >
 <input type="submit"  name="submit" value="Academic details" />
 </form>
@@ -25,5 +26,8 @@
  </form>
  <form action="./logout.jsp" method=POST>
           <pre><input type="submit"  name="submit" value=" Logout"/></pre>
+          
 </form>
+<jsp:include page="footer.jsp"/>
+</body>
 </html>

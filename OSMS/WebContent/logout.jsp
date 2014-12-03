@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <table>
 	<tr>
 		<%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%>
@@ -17,6 +18,7 @@
 		if(session!=null)
 		session.invalidate();
 %>
- <h3 align="center"><a href="./welcome.html"><font color="white">Login</font></a></h3>
+ <h3 align="center"><a href="./welcome.jsp"><font color="white">Login</font></a></h3>
+ <jsp:include page="footer.jsp"/>
 </body>
 </html>

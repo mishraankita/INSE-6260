@@ -1,9 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page session="true" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login page</title>
 </head>
-<body  background="new.jpg">
+<body  background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <script type="text/JavaScript">
 	function validateForm()
 {		   
@@ -52,12 +58,13 @@
 	</tr>
 	<tr>
 		<td>
-<!-- 			<input type="button" name= "action" value="Forget Password" onclick="form.action='./forgetpassword.html';"> -->
-			<input type="button" onclick="location.href('forgetpassword.html');" value="Forget Password" >
+<!-- 			<input type="button" name= "action" value="Forget Password" onclick="form.action='./forgetpassword.jsp';"> -->
+			<input type="button" onclick="location.href('forgetpassword.jsp');" value="Forget Password" >
 		</td>
 	</tr>
 </table>
 </form>
-
+<jsp:include page="footer.jsp"/>
 </body>
+
 </html>

@@ -6,13 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
-
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <form>
 	<br><%=(String)request.getAttribute("resultsMessage")%><br>
 </form>
 <form action="./RegisterByDPD" method=POST >
  <input type="submit"  name="submit" value="Return" />
  </form>
+ <jsp:include page="footer.jsp"/>
 </body>
 </html>

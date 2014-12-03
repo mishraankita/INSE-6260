@@ -50,7 +50,7 @@ ServletRequestAware,ServletResponseAware {
 				while (rs.next()) {
 					validStudentAccount = true;
 					out.println("<html>"
-							+ "<body background=welcome.jpg >"
+							+ "<body background=bg16.jpg >"
 							+ "<h1 align=center >"
 							+ "<font color=blue>Student Details</font></h1><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th> <th>Address</th><th>Phone Number</th> <th>Email</th><th>Session Joined</th><th>Department ID</th><th>Enrolled in program</th><th>Date of birth</th></tr>");
 					
@@ -85,7 +85,7 @@ ServletRequestAware,ServletResponseAware {
 					while (rs2.next() && validStudentAccount) {
 						if(printAcademicDetails){
 							out.println("<html>"
-									+ "<body background=welcome.jpg >"
+									+ "<body background=bg16.jpg >"
 									+ "<br><br><h1 align=center >"
 									+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
 							printAcademicDetails=false;
@@ -110,7 +110,7 @@ ServletRequestAware,ServletResponseAware {
 						printFeesNotPaid = false;
 						if(print){
 							out.println("<html>"
-									+ "<body background=welcome.jpg >"
+									+ "<body background=bg16.jpg >"
 									+ "<br><br><h1 align=center >"
 									+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
 							print=false;
@@ -123,7 +123,7 @@ ServletRequestAware,ServletResponseAware {
 					}
 					if(printFeesNotPaid && validStudentAccount){
 						out.println("<html>"
-								+ "<body background=welcome.jpg >"
+								+ "<body background=bg16.jpg >"
 								+ "<br><br><h1 align=center >"
 								+ "<font color=blue>Student Fees Payment</font></h1><table border =1 align=center ><tr><th>Payment Date</th><th>Payment Amount Obtained</th><th>Fee Payment deadline</th></tr>");
 						
@@ -139,7 +139,7 @@ ServletRequestAware,ServletResponseAware {
 					
 					while (rs4.next() && validStudentAccount) {
 						out.println("<html>"
-								+ "<body background=welcome.jpg >"
+								+ "<body background=bg16.jpg >"
 								+ "<br><br><h1 align=center >"
 								+ "<font color=blue>Student Account Status</font></h1><table border =1 align=center ><tr><th>Account Status</th></tr>");
 						out.println("<tr><td>" + rs4.getString(1) + "</td></tr>");
@@ -158,7 +158,7 @@ ServletRequestAware,ServletResponseAware {
 				while (rs.next()) {
 					validDPDAcoount = true;
 					out.println("<html>"
-							+ "<body background=welcome.jpg >"
+							+ "<body background=bg16.jpg >"
 							+ "<h1 align=center >"
 							+ "<font color=blue>DPD Details</font></h1><br><table border =1 align=center ><tr><th>User ID</th><th>FirstName</th><th>LastName</th><th>Address</th><th>Email</th></tr>");
 					
@@ -184,7 +184,7 @@ ServletRequestAware,ServletResponseAware {
 				
 				while (rs4.next() && validDPDAcoount) {
 					out.println("<html>"
-							+ "<body background=welcome.jpg >"
+							+ "<body background=bg16.jpg >"
 							+ "<br><br><h1 align=center >"
 							+ "<font color=blue>Student Account Status</font></h1><table border =1 align=center ><tr><th>Account Status</th></tr>");
 					out.println("<tr><td>" + rs4.getString(1) + "</td></tr>");

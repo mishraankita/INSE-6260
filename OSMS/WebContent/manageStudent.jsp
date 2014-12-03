@@ -9,8 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>student registration</title>
 </head>
-<body background="new.jpg">
-<H1>Fetching Data From a Database</H1>
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
+
 <form action="./ManageStudentDetails" method=POST>
 <h1 align="center"><font color="blue">Edit Student Information</font></h1>
 <jsp:declaration>
@@ -239,5 +240,6 @@ userID = (String)session.getAttribute("UserID");
 	
 </form>
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
+ <jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -7,7 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Student Details</title>
 </head>
-<body background=new.jpg>
+<body background=bg16.jpg>
+
+<jsp:include page="header.jsp"/>
 	<br><h1 align=center ><font color=blue>Student Details</font></h1>
 	<table border =1 align=center >
 		<tr>
@@ -59,10 +61,11 @@
 		<tr><td><s:property value="status"/></td></tr>
 	</table>
 	
-	<h2 align=center><a href=./dpdsuccess.html> Go to Home</a></h2>
+	<h2 align=center><a href=./dpdsuccess.jsp> Go to Home</a></h2>
 				
 				
 	
-				
+
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

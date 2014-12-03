@@ -6,10 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body background="new.jpg">
+<body background="bg16.jpg">
+<jsp:include page="header.jsp"/>
 <br><%=(String)request.getAttribute("resultsMessage")%><br>
 
 <form action="./studentsuccess.jsp" method=POST>
 		<input type="submit" value="Return">
-	</form></body>
+	</form>
+		<jsp:include page="footer.jsp"/>
+	</body>
 </html>

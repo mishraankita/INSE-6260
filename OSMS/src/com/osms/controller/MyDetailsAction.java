@@ -93,6 +93,15 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 				student.setPaymentFeeDeadLine(paymentDateYear + "-"
 						+ paymentDateMonth + "-" + paymentDateDay);
 			}
+			if(student.getFeesPaid()==null || student.getFeesPaid()){
+				rs3 = stmt
+						.executeQuery("select * from feepayment where UserID='0'");
+				while (rs3.next()) {
+					student.setFeesPaid(false);
+					System.out.println();
+					student.setPaymentFeeDeadLine(rs3.getString(4));
+				}
+			}
 
 			ResultSet rs4 = stmt
 					.executeQuery("select Status from login where UserID='"
@@ -107,7 +116,7 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 				return "successAdmin";
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 			return "failure";
 		}
 	}

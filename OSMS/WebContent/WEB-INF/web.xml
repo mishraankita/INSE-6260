@@ -1,6 +1,6 @@
 <web-app>
   <welcome-file-list>
-    <welcome-file>welcome.html</welcome-file>
+    <welcome-file>welcome.jsp</welcome-file>
   </welcome-file-list>
     
    <servlet>
@@ -12,7 +12,6 @@
   	<servlet-name>StudentSevlet</servlet-name>
   	<url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
-  
 <!--   <servlet> -->
 <!--    	<servlet-name>SearchStudentOrDpdDetails</servlet-name> -->
 <!--    	<servlet-class>com.osms.controller.SearchStudentOrDpdDetails</servlet-class> -->
