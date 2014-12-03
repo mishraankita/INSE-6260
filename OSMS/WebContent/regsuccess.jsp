@@ -8,7 +8,7 @@
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
 
-<h1> student (<%=request.getAttribute("userID") %>) created  successfully</h1>
+<h1> <font color="white" > Account created successfully </font></h1>
 <a href="./student.jsp">register a new student</a>
 <a href="./adminsuccess.jsp">Go to Home</a>
 <jsp:include page="footer.jsp"/>

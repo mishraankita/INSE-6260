@@ -191,7 +191,11 @@
 		
 </form>
 
+<<<<<<< HEAD
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 <jsp:include page="footer.jsp"/>
+=======
+ <h3 align="center"><a href="./adminsuccess.jsp"> <font color="white"> Go to Home</font></a></h3>
+>>>>>>> 29104fc6ec59e7b600ebd90a99dbc4df75c3de97
 </body>
 </html>

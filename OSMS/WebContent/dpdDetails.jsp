@@ -61,8 +61,8 @@
 		<tr><td><s:property value="status"/></td></tr>
 	</table>
 	
-	<h2 align=center><a href=./dpdsuccess.jsp> Go to Home</a></h2>
-				
+
+	<h2 align=center><a href=./dpdsuccess.jsp> Go to Home</a></h2>				
 				
 	
 

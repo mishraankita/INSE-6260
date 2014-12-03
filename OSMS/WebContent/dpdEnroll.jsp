@@ -146,6 +146,7 @@
 </table>
 <pre><input type="submit" name="button_1"  value="SUBMIT"></pre>
 </form>
+
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 <jsp:include page="footer.jsp"/>
 </body>
