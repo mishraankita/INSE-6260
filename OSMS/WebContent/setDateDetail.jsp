@@ -71,7 +71,7 @@
 		</table>
 	</form>
 	<h3 align="center">
-		<a href="./adminsuccess.jsp"> Go to Home</a>
+		<a href="./adminsuccess.jsp"> <font color="white">Go to Home</font></a>
 	</h3>
 </body>
 </html>

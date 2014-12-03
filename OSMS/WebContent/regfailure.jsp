@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body background="new.jpg">
-<h1> student registration failed</h1>
-<a href="./student.jsp">register a new student</a>
-<a href="./adminsuccess.jsp">Go to Home</a>
+<h1> <font color="white" > Registration failed </font></h1>
+<a href="./student.jsp"><font color="white">register a new student</font></a>
+<a href="./adminsuccess.jsp"><font color="white">Go to Home</font></a>
 </body>
 </html>

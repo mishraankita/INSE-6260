@@ -59,7 +59,7 @@
 		<tr><td><s:property value="status"/></td></tr>
 	</table>
 	
-	<h2 align=center><a href=./dpdsuccess.html> Go to Home</a></h2>
+	<h2 align=center><a href=./dpdsuccess.html><font color="white" > Go to Home </font></a></h2>
 				
 				
 	

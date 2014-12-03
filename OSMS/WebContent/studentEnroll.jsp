@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>student registration</title>
 </head>
-<body background="welcome.jpg">
+<body background="new.jpg">
 <script type="text/JavaScript">
 
 	function validateForm()
@@ -190,6 +190,6 @@
 		
 </form>
 
- <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
+ <h3 align="center"><a href="./adminsuccess.jsp"> <font color="white"> Go to Home</font></a></h3>
 </body>
 </html>
