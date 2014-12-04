@@ -19,6 +19,10 @@
      alert( "Please provide userID" );
      return false;
    }
+   if(isNaN(x)){
+	   alert( "Please enter valid Numeric User ID!" );
+	   return false;
+}
    return true;
 }
 	</script>

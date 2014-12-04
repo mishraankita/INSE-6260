@@ -19,6 +19,11 @@
      alert( "Please provide your User ID!" );
      return false;
    }
+   
+//    if(isNaN(a)){
+// 	   alert( "Please enter valid Numeric User ID!" );
+// 	   return false;
+//    }
    var b = document.forms["studentEnroll"]["firstname"].value;
    if( b == null || b == "" )
    {
@@ -51,25 +56,17 @@
        alert("Not a valid e-mail address");
        return false;
    }
-   
-    var i = document.forms["studentEnroll"]["enrollProgram"].value;
-   if( i == null || i == "" )
-   {
-     alert( "Please provide enrollProgram!" );
-     return false;
-   }
-   var j = document.forms["studentEnroll"]["dob"].value;
-   if( j == null || j == "" )
-   {
-     alert( "Please provide Date of Birth " );
-     return false;
-   }
     var k = document.forms["studentEnroll"]["password"].value;
    if( k == null || k == "" )
    {
      alert( "Please provide password " );
      return false;
    }
+   var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+   if(!k.match(paswd)){
+		 alert( "Please provide valid password " );
+	     return false;
+	} 
     var l = document.forms["studentEnroll"]["securityQuestion"].value;
    if( l == null || l == "" )
    {
@@ -97,7 +94,7 @@
    return true;
 }
 	</script>
-<form action="./enroll" method=POST>
+<form name = "studentEnroll" action="./enroll" method=POST onsubmit="return validateForm()">
 <h1 align="center"><font color="black">DPD Information Form</font></h1>
 <table align="center">      
 	<tr>

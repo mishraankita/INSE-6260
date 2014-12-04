@@ -18,6 +18,10 @@
      alert( "Please provide your User ID!" );
      return false;
    }
+	if(isNaN(a)){
+		   alert( "Please enter valid Numeric User ID!" );
+		   return false;
+	}
    var b = document.forms["studentEnroll"]["firstname"].value;
    if( b == null || b == "" )
    {

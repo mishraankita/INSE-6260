@@ -17,9 +17,10 @@
 	function validateForm()
 {		   
    var x = document.forms["deadline1"]["Manage Fee Payment Deadline"].value;
-   if( x == null || x == "" )
+   var y = document.forms["deadline2"]["Manage course Add/Drop Deadline"].value;
+   if( x == null && y == null)
    {
-     alert( "Please provide fee payment deadline" );
+     alert( "Please provide deadline" );
      return false;
    }
    
