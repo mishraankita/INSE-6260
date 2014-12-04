@@ -163,11 +163,15 @@
 	</tr>
 	<tr>
 		<td>Password :</td>
-		<td><input type="text" name="password"></input></td>
+		<td><input type="password" name="password"></input></td>
 	</tr>
 	<tr>
 		<td>securityQuestion :</td>
-		<td><input type="text" name="securityQuestion"></input></td>
+		<td><select name="securityQuestion">
+		  <option value="What is your Pet Name ?">What is your Pet Name ?</option>
+		  <option value="Who is your favourite Teacher ?">Who is your favourite Teacher ?</option>
+		   <option value="What is your favourite Subject ?">What is your favourite Subject ?</option>
+		</select></td>
 	</tr>
 	<tr>
 		<td>answer :</td>
@@ -191,11 +195,7 @@
 		
 </form>
 
-<<<<<<< HEAD
  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
 <jsp:include page="footer.jsp"/>
-=======
- <h3 align="center"><a href="./adminsuccess.jsp"> <font color="white"> Go to Home</font></a></h3>
->>>>>>> 29104fc6ec59e7b600ebd90a99dbc4df75c3de97
 </body>
 </html>

@@ -10,7 +10,7 @@
 	<table border="8" align="center">
 		<tr>
 			<td><h1>
-					<font align="center" , size = "5" , color = "blue">Account created successfully </font>
+					<font align="center" , size = "5" , color = "blue">Account Already Exists....Please try again ! </font>
 				</h1></td>
 		</tr>
 

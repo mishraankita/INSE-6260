@@ -74,7 +74,7 @@ public class EnrollStudentOrDpd implements SessionAware,ServletRequestAware {
 
 					result1 = psmt1.executeUpdate();
 				}else{
-					result1=1;
+					result1=2;
 				}
 				
 			} else {
@@ -100,7 +100,7 @@ public class EnrollStudentOrDpd implements SessionAware,ServletRequestAware {
 
 					result1 = psmt1.executeUpdate();
 				}else{
-					result1=1;
+					result1=2;
 				}
 			}
 			Statement stmt = con.createStatement();
@@ -119,15 +119,17 @@ public class EnrollStudentOrDpd implements SessionAware,ServletRequestAware {
 
 				result2 = psmt2.executeUpdate();
 			}else{
-				result2=1;
+				result2=2;
 			}
 			
 
 			if (result1 == 1 && result2 == 1) {
 				// request.setAttribute("firstname", firstname);
-				sessionMap.put("UserID", userID);
+			//		sessionMap.put("UserID", userID);
 				return "regsuccess";
-			} else {
+			}else if(result1 == 2 || result2 == 2){
+				return "failDuplicate";
+			}else {
 				return "regfailure";
 			}
 		} catch (Exception e) {

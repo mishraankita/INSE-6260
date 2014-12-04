@@ -10,6 +10,7 @@
       
       <action name="LogonServlet" method="login"
          class="com.osms.controller.LoginAction">
+         <result name="userDoesNotExists"> /userDoesNotExists.jsp </result>
          <result name="failure"> /failure.jsp </result>
          <result name="accountLocked"> /accountLocked.jsp </result>
          <result name="studentsuccess"> /studentsuccess.jsp </result>
@@ -35,12 +36,14 @@
     
     <action name="SetDates" method="SetDates"
          class="com.osms.controller.SetDatesServlet">
+         <result name="success"> /SetDateSuccess.jsp </result>
          <result name="failure"> /failure.jsp </result>
     </action>
     
     
     <action name="SetAddDropDeadLine" method="SetDeadLine"
          class="com.osms.controller.SetAddDropDeadLine">
+         <result name="success"> /SetDateSuccess.jsp </result>
          <result name="failure"> /failure.jsp </result>
     </action>
     
@@ -48,12 +51,13 @@
     <action name="manageStudent" method="getStudentDetails"
          class="com.osms.controller.ManageStudentAction">
          <result name="failure"> /failure.jsp </result>
+         <result name="userDoesNotExists"> /userDoesNotExists.jsp </result>
          <result name="success"> /ManageStudentDetails.jsp </result>
     </action>
     
     <action name="updateStudent" method="updateStudent"
          class="com.osms.controller.ManageStudentAction">
-         <result name="successStudent"> /studentsuccess.jsp </result>
+         <result name="successStudent"> /studentsuccessUpdate.jsp </result>
          <result name="successAdmin"> /manageStudentAccount.jsp </result>
          <result name="failure"> /failure.jsp </result>
     </action>
@@ -61,6 +65,7 @@
 	 <action name="manageDPD" method="getDPDDetails"
          class="com.osms.controller.ManageDPDAction">
          <result name="failure"> /failure.jsp </result>
+         <result name="userDoesNotExists"> /userDoesNotExists.jsp </result>
          <result name="success"> /ManageDPDDetails.jsp </result>
     </action>
     
@@ -80,7 +85,7 @@
 
     <action name="RecoverPassword" method="recoverPassword"
          class="com.osms.controller.RecoverPasswordAction">
-         <result name="failure"> /failure.jsp </result>
+         <result name="forgetPasswordFailure"> /forgetPasswordFailure.jsp </result>
          <result name="accountLocked"> /accountLocked.jsp </result>
 <!--          <result name="studentsuccess"> /studentsuccess.jsp </result> -->
          <result name="adminsuccess"> /adminsuccess.jsp </result>
@@ -159,6 +164,7 @@
          class="com.osms.controller.EnrollStudentOrDpd">
          <result name="regsuccess"> /regsuccess.jsp </result>
          <result name="regfailure"> /regfailure.jsp </result>
+          <result name="failDuplicate"> /AccountAlreadyExists.jsp </result>
     </action>
 	
 	<action name="searchDetails" method="searchDetails"

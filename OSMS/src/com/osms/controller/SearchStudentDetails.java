@@ -81,21 +81,56 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 							+ "</td></tr>");
 					out.println("</table border=3 ></body></html>");
 				}
+				int counter = 0;
+				int total = 0;
 					ResultSet rs2 = stmt
 							.executeQuery("select * from coursetaken where UserID='"
 									+ userID + "'");
 					boolean printAcademicDetails = true;
+					int coursesFinished = 0;
+					float cgpa = 0.0f;
 					while (rs2.next() && validStudentAccount) {
 						if(printAcademicDetails){
 							out.println("<html>"
 									+ "<body background=bg16.jpg >"
 									+ "<br><br><h1 align=center >"
-									+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></tr>");
+									+ "<font color=blue>Student Academic Details</font></h1><table border =1 align=center ><tr><th>Course ID</th><th>Grades Obtained</th></th><th>Credit Associated</th><th>Session</th></tr>");
 							printAcademicDetails=false;
 						}
+						String gradeObtained = rs2.getString(3)!=null?rs2.getString(3):"In Progress";
+						if(rs2.getString(3) !=null){
+							coursesFinished +=1;
+							if(gradeObtained.equalsIgnoreCase("A+"))
+								cgpa +=4.3;
+							else if(gradeObtained.equalsIgnoreCase("A"))
+								cgpa +=4;
+							else if (gradeObtained.equalsIgnoreCase("A-"))
+								cgpa +=3.7;
+							else if (gradeObtained.equalsIgnoreCase("B+"))
+								cgpa +=3.3;
+							else if (gradeObtained.equalsIgnoreCase("B"))
+								cgpa +=3;
+							else if(gradeObtained.equalsIgnoreCase("B-"))
+								cgpa +=2.7;
+							else
+								cgpa +=0;
+						}
+						counter = counter + 1;
+						total = counter * 4;
 						System.out.println("UserID" + rs2.getString(1));
-						out.println("<tr><td>" + rs2.getString(2) + "</td><td>"+ rs2.getString(3)
-								+ "</td></tr>");
+						out.println("<tr><td>" + rs2.getString(2) + "</td><td>"+ gradeObtained + "</td><td>" + 4
+								+  "</td><td>"+ rs2.getString(4) +"</td></tr>");
+						
+					}
+					float gpa = 0.0f;
+					if(coursesFinished !=0)
+						gpa = cgpa / coursesFinished;
+					
+					if(validStudentAccount){
+					out.println("<tr><td colspan="+4+">" +  "Total credits completed out of 40 := " +total
+							+ "</td></tr>");
+					out.println("<tr><td colspan="+4+">" +  "GPA := " +gpa
+							+ "</td></tr>");
 					}
 					if(!printAcademicDetails){
 						out.println("</table border=3 ></body></html>");
@@ -148,6 +183,12 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 						out.println("<tr><td>" + rs4.getString(1) + "</td></tr>");
 						out.println("</table border=3 ></body></html>");
 					}
+					if(!validStudentAccount)
+					out.println("<html>"
+							+ "<body background=bg16.jpg >"
+							+ "<br><br><h1 align=center >"
+							+ "<font color=red> Invalid userID</font></h1><table border =1 align=center >");
+			
 				out.println("</table border=3 ></body></html>");
 				out.println("<br/><br/>");
 				out.println(" <h2 align=center><a href=./dpdsuccess.jsp> Go to Home</a></h2>");
@@ -173,7 +214,6 @@ public class SearchStudentDetails extends ActionSupport implements ModelDriven<S
 	}
 
 	public Student getModel() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -37,6 +37,14 @@ public class ManageDPDAction extends ActionSupport implements
 			ResultSet rs = stmt
 					.executeQuery("select * from employee where UserID='"
 							+ userID + "'");
+			int isValidUser = 0;
+			while (rs.next()) {
+			isValidUser = rs.getInt(1);
+			}
+			if(isValidUser == 0){
+				return "userDoesNotExists";
+			}
+			
 			while (rs.next()) {
 				dpd.setUserID(rs.getInt(1));
 				dpd.setFirstname(rs.getString(2));
@@ -47,7 +55,7 @@ public class ManageDPDAction extends ActionSupport implements
 			
 			ResultSet rs4 = stmt
 					.executeQuery("select Status,Password,SecurityQuestion,Answer from login where UserID='"
-							+ "123" + "'");
+							+ userID + "'");
 			while (rs4.next()) {
 				dpd.setPassword(rs4.getString(2));
 				dpd.setSecurityQuestion(rs4.getString(3));
@@ -83,14 +91,15 @@ public class ManageDPDAction extends ActionSupport implements
 			updateData.executeUpdate();
 
 			updateString = "update login "
-					+ "set Status = ?,Password = ?, SecurityQuestion = ?, Answer = ?"
+					+ "set Status = ?,Password = ?, SecurityQuestion = ?, Answer = ?, LoginAttemptCount = ?"
 					+ " where UserID = ?";
 			updateData = con.prepareStatement(updateString);
 			updateData.setString(1, dpd.getStatus());
 			updateData.setString(2, dpd.getPassword());
 			updateData.setString(3, dpd.getSecurityQuestion());
 			updateData.setString(4, dpd.getAnswer());
-			updateData.setLong(5, dpd.getUserID());
+			updateData.setString(5, "0");
+			updateData.setLong(6, dpd.getUserID());
 
 			updateData.executeUpdate();
 			

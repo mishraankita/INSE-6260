@@ -7,12 +7,19 @@
 </head>
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
-	<font color="blue" size="20" >Login Failure</font>
-	
+<table align = "center">
+	<tr>
+		<td><font color="red" , align="center" size="7">Login
+				Failure</font></td>
+	</tr>
+</table>
+<table align = "center">
 	<form action="./welcome" method=POST>
-      <input type="submit"  name="submit" value="Go to login page"/>
-    </form>
-	
-<jsp:include page="footer.jsp"/>
+		<tr>
+			<td><input type="submit" name="submit" value="Go to login page" /></td>
+		</tr>
+	</form>
+	</table>
+	<jsp:include page="footer.jsp"/>
 	</body>
 </html>

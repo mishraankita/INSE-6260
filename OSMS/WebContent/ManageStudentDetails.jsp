@@ -173,7 +173,7 @@
 		
 </form>
 
- <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
+  <h3 align="center"><a href="./adminsuccess.jsp">   Go to Home</a></h3>
  	<jsp:include page="footer.jsp"/>
 </body>
 </html>

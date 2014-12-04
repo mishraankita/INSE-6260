@@ -27,7 +27,7 @@ public class SetDatesServlet extends ActionSupport implements SessionAware,Servl
 	HttpServletResponse response;
 	HttpServletRequest request;
 
-	public void SetDates()  {
+	public String SetDates()  {
 		
 		try {
 			Connection con = DBConnection.getConnection();
@@ -51,7 +51,9 @@ public class SetDatesServlet extends ActionSupport implements SessionAware,Servl
 				out.println(" <h2 align=center><a href=./adminsuccess.jsp> Go to Home</a></h2>");
 		} catch (Exception e) {
 			System.out.println(e);
+			return "failure";
 		}
+		return "success";
 	}
 
 	public void setSession(Map<String, Object> map) {

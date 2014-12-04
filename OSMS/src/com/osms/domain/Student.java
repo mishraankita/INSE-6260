@@ -1,10 +1,24 @@
 package com.osms.domain;
+
+import java.util.List;
+import java.util.Map;
+
 public class Student {
-	private int userID , phoneNumber , departmentID, CourseID, PaymentAmount;
+	private int userID , phoneNumber , departmentID, CourseID, PaymentAmount, creditsCompleted;
 	private String  firstname, lastname, address, email, sessionJoined, status,
 			enrollProgram, dob,GradesObtained, sessionRegisterIn,schedule, PaymentDate,PaymentFeeDeadLine,password,securityQuestion,answer;
 	private Boolean feesPaid;
+	private Map<Integer,List> coursesMap;
+	float gpa;
 	
+	public float getGpa() {
+		return gpa;
+	}
+
+	public void setGpa(float gpa) {
+		this.gpa = gpa;
+	}
+
 	public int getUserID() {
 		return userID;
 	}
@@ -162,5 +176,21 @@ public class Student {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Map<Integer,List> getCoursesMap() {
+		return coursesMap;
+	}
+
+	public void setCoursesMap(Map<Integer,List> coursesMap) {
+		this.coursesMap = coursesMap;
+	}
+
+	public int getCreditsCompleted() {
+		return creditsCompleted;
+	}
+
+	public void setCreditsCompleted(int creditsCompleted) {
+		this.creditsCompleted = creditsCompleted;
 	}
 }

@@ -126,7 +126,11 @@
 	</tr>
 	<tr>
 		<td>securityQuestion :</td>
-		<td><input type="text" name="securityQuestion"></input></td>
+		<td><select name="securityQuestion">
+		  <option value="What is your Pet Name ?">What is your Pet Name ?</option>
+		  <option value="Who is your favourite Teacher ?">Who is your favourite Teacher ?</option>
+		   <option value="What is your favourite Subject ?">What is your favourite Subject ?</option>
+		</select></td>
 	</tr>
 	<tr>
 		<td>answer :</td>

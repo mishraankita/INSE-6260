@@ -24,15 +24,23 @@ function validateForm()
 }
 </script>
 <form name = "forgetpassword" action="./RecoverPassword" method="post" onsubmit="return validateForm()">
-	<h1 align="center"><font color="blue" size="6" >Security Question</font></h1>
+	<h1 align="center"><font color="blue" size="6" >Please Answer Security Question</font></h1>
 <table border="8" align="center">
 	<tr>
 		<td >USER ID</td>
 		<td ><input type="text" name="UserID"> </td>
 	</tr>
 	<tr>
-		<td>What is your favorite subject? </td>
-		<td><input type="password" name="Answer"></td>
+		<td >Security Question</td>
+		<td><select name="securityQuestion">
+		  <option value="What is your Pet Name ?">What is your Pet Name ?</option>
+		  <option value="Who is your favourite Teacher ?">Who is your favourite Teacher ?</option>
+		   <option value="What is your favourite Subject ?">What is your favourite Subject ?</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Answer</td>
+		<td><input type="text" name="Answer"></td>
 	</tr>
 <tr>
 		<td><input type="submit" name="button_1" value="SUBMIT"></td>

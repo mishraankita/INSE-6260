@@ -13,10 +13,28 @@
 </head>
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
-	
-	<form action="./SetDates" method=POST>
+	<script type="text/JavaScript">
+	function validateForm()
+{		   
+   var x = document.forms["deadline1"]["Manage Fee Payment Deadline"].value;
+   if( x == null || x == "" )
+   {
+     alert( "Please provide fee payment deadline" );
+     return false;
+   }
+   
+//    var y = document.forms["deadline2"]["Manage course Add/Drop Deadline"].value;
+//    if( y == null || y == "" )
+//    {
+//      alert( "Please provide course Add/Drop deadline" );
+//      return false;
+//    }
+   return true;
+}
+	</script>
+	<form name = "deadline1" action="./SetDates" method=POST onsubmit="return validateForm()">
 		<h1 align="center">
-			<font color="blue">Edit Student Information</font>
+			<font color="blue">Edit Deadline Information</font>
 		</h1>
 		<%
 			Connection con = DBConnection.getConnection();
@@ -37,7 +55,7 @@
 			<tr>
 				<td>
 			<tr>
-				<td>Edit :</td>
+				<td>Edit :(in dd/mm/yyyy format)</td>
 				<td><input type="text" name="Manage Fee Payment Deadline" /></td>
 			</tr>
 			<tr>
@@ -46,7 +64,7 @@
 			</tr>
 		</table>
 		</form>
-		<form action="./SetAddDropDeadLine" method=POST>
+		<form  name = "deadline2" action="./SetAddDropDeadLine" method=POST onsubmit="return validateForm()">
 		<%
 			int courseID = 0;
 			ResultSet rs1 = stmt
@@ -62,7 +80,7 @@
 			<tr>
 				<td>
 			<tr>
-				<td>Edit :</td>
+				<td>Edit :(in dd/mm/yyyy format)</td>
 				<td><input type="text" name="Manage course Add/Drop Deadline" /></td>
 			</tr>
 			<tr>
@@ -72,7 +90,7 @@
 		</table>
 	</form>
 	<h3 align="center">
-		<a href="./adminsuccess.jsp"> <font color="white">Go to Home</font></a>
+		<a href="./adminsuccess.jsp"> <font color="black">Go to Home</font></a>
 	</h3>
 	 <jsp:include page="footer.jsp"/>
 </body>

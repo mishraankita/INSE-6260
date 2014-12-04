@@ -7,7 +7,19 @@
 </head>
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
-<form action="./searchDetails" method=POST>
+<script type="text/JavaScript">
+	function validateForm()
+{		   
+   var x = document.forms["search"]["userID"].value;
+   if( x == null || x == "" )
+   {
+     alert( "Please provide UserID" );
+     return false;
+   }
+   return true;
+}
+	</script>
+<form name = "search" action="./searchDetails" method=POST onsubmit="return validateForm()">
 <h1 align="center"><font color="blue">View Student/DPD information</font></h1>
 <table align="center">      
 	<tr>

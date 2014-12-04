@@ -46,7 +46,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>,
 
 				// to chk if the userID exists.
 				if (dbUserID == null) {
-					return "failure";
+					return "userDoesNotExists";
 				}
 				if (dbLoginAttemptCount >= 3) {
 					return "accountLocked";
@@ -69,7 +69,9 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>,
 							return "dpdsuccess";
 						}
 					} else {
+						if(!AccountType.equals("admin")){
 						updateLoginAttemptCount(++dbLoginAttemptCount, dbUserID);
+						}
 						if (dbLoginAttemptCount == 3) {
 							return "accountLocked";
 						} else {

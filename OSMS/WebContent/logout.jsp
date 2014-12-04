@@ -9,8 +9,8 @@
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
 <table>
-	<tr>
-		<%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%>
+	<tr align = "center">
+		<h3 align="center"><font color="black"><%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%></font></h3>
 	</tr>    
 </table>
 <%
@@ -18,7 +18,7 @@
 		if(session!=null)
 		session.invalidate();
 %>
- <h3 align="center"><a href="./welcome.jsp"><font color="white">Login</font></a></h3>
+ <h3 align="center"><a href="./welcome.jsp"><font color="black">Login</font></a></h3>
  <jsp:include page="footer.jsp"/>
 </body>
 </html>

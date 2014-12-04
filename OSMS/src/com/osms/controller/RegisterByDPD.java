@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -61,7 +62,19 @@ public class RegisterByDPD extends ActionSupport implements SessionAware,Servlet
 //			if(rs.next())
 //				departmentID = rs.getInt("DepartmentID");
 			
-			ResultSet rs = stmt.executeQuery("select * from courseoffered;");
+			ResultSet rs = stmt
+					.executeQuery("select * from studentdetails where UserID='"
+							+ userID + "'");
+			
+			if(!rs.next()){
+				request.setAttribute("resultsMessage", "Record not found! Please enter valid Student Id !");
+				RequestDispatcher rd = request.getRequestDispatcher("./RegistrationByDpd.jsp");
+	    		rd.forward(request, response);
+	    		con.close();
+			}
+			
+			
+			rs = stmt.executeQuery("select * from courseoffered;");
 
 			while (rs.next()) {
 				coursesRegistrationByDPD.addCourseOffered(rs.getInt("CourseID"),

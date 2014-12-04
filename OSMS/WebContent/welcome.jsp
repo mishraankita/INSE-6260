@@ -14,10 +14,13 @@
 	function validateForm()
 {		   
    var x = document.forms["login"]["UserID"].value;
-   if( x == null || x == "" )
+   if( x == 0 || x == "" )
    {
      alert( "Please provide your User ID!" );
      return false;
+   }if(isNaN(x)){
+	   alert( "Please enter valid Numeric User ID!" );
+	   return false;
    }
    var y = document.forms["login"]["Password"].value;
    if( y == null || y == "" )

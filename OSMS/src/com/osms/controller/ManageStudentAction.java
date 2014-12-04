@@ -31,6 +31,18 @@ public class ManageStudentAction extends ActionSupport implements
 		try {
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
+			
+			ResultSet res = stmt
+					.executeQuery("select * from studentdetails where UserID='"
+							+ userID + "'");
+			int isValidUser = 0;
+			while (res.next()) {
+			isValidUser = res.getInt(1);
+			}
+			if(isValidUser == 0){
+				return "userDoesNotExists";
+			}
+			
 			// out.println(" <h2 align=center><a href=./student.jsp>VIEW MY Account</a><br/></h2>");
 			ResultSet rs = stmt
 					.executeQuery("select * from studentdetails where UserID='"
@@ -97,10 +109,13 @@ public class ManageStudentAction extends ActionSupport implements
 		// String userID = request.getParameter("userID");
 		String userID = String.valueOf(student.getUserID());
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<my userID  is : " + userID);
-
+		
 		try {
 			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			
 			PreparedStatement updateData = null;
+			
 			String updateString = "update studentdetails "
 					+ "set FirstName = ?,LastName = ?, Address = ?, PhoneNumber = ?,"
 					+ "Email = ?,SessionJoined = ?,DepartmentID = ?,EnrollProgram = ?,DateOfBirth = ? where UserID = ?";

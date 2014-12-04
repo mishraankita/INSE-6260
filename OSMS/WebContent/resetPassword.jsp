@@ -14,6 +14,14 @@
 {		   
    var x = document.forms["resetPassword"]["Password"].value;
    var y = document.forms["resetPassword"]["Password2"].value;
+   if(x == null || x == ""){
+	   alert( "Please provide password" );
+	     return false;
+   }
+   if(y == null || y == ""){
+	   alert( "Please provide confirm password" );
+	     return false;
+   }
    if( x != y )
    {
      alert( "Confirm password and new password do not match" );
@@ -31,11 +39,11 @@
 	</tr>
 	<tr>
 		<td >New Password</td>
-		<td ><input type="text" name="Password"> </td>
+		<td ><input type="password" name="Password"> </td>
 	</tr>
 	<tr>
 		<td >Confirm New Password</td>
-		<td ><input type="text" name="Password2"> </td>
+		<td ><input type="password" name="Password2"> </td>
 	</tr>
 <tr>
 		<td><input type="submit" name="button_1" value="SUBMIT"></td>

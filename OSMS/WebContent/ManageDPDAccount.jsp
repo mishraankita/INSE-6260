@@ -28,7 +28,7 @@
 	</tr>
 </table>
 </s:form>
- <h3 align="center"><a href="./adminsuccess.jsp">  <font color="white" > Go to Home </font></a></h3>
+ <h3 align="center"><a href="./adminsuccess.jsp">  <font color="black" > Go to Home </font></a></h3>
 <!--   <h3 align="center"><a href="./manageStudent.jsp">Manage Student</a><br/></h3> -->
 <!--  <h3 align=center><a href=./dpdManage.jsp>Manage DPD</a><br/></h3> -->
 <jsp:include page="footer.jsp"/>

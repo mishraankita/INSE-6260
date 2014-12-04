@@ -36,6 +36,7 @@ public class RecoverPasswordAction extends ActionSupport implements ModelDriven<
 //		String answer = (String) sessionMap.get("Answer");
 		String userID = request.getParameter("UserID");
 		String answer = request.getParameter("Answer");
+		String sQuestion = request.getParameter("securityQuestion");
 		//String answer =  user.getAnswer();
 		System.out.println("userID isxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx : " +userID);
 		System.out.println("answer isxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx : " +answer);
@@ -43,7 +44,7 @@ public class RecoverPasswordAction extends ActionSupport implements ModelDriven<
 			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt
-					.executeQuery("select Answer,Status from login where UserID='"
+					.executeQuery("select SecurityQuestion,Answer,Status from login where UserID='"
 							+ userID + "'");// and password='"+passWord+"'");
 			if (rs.next()) {
 				// String dbuserID = rs.getString("UserID");
@@ -51,13 +52,14 @@ public class RecoverPasswordAction extends ActionSupport implements ModelDriven<
 				
 				String dbAnswer = rs.getString("Answer");
 				int status = rs.getInt("Status");
+				String dbSecurityQuestion = rs.getString("SecurityQuestion");
 	
 				if (userID == null || answer == null || userID == "") {
 					return "failure";
 				}
 				System.out.println("dbAnswer is >>>>>>>> " +dbAnswer);
 				System.out.println("answer is <<<<<<<< " +answer);
-				if (answer.equalsIgnoreCase(dbAnswer) && status==1) {
+				if (answer.equals(dbAnswer) && status==1 && sQuestion.equals(dbSecurityQuestion)) {
 					// TODO save the password to the INBOX AND OPEN THE
 					// ACCOUNT
 					sessionMap.put("UserID", String.valueOf(user.getUserID()));
@@ -67,7 +69,7 @@ public class RecoverPasswordAction extends ActionSupport implements ModelDriven<
 					return "accountLocked";
 				}
 				else{
-					return "failure";
+					return "forgetPasswordFailure";
 				}
 			}
 			 con.close();

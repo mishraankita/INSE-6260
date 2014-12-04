@@ -8,8 +8,18 @@
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
 <script type="text/JavaScript">
+function validateForm()
+{		   
+var x = document.forms["search"]["UserID"].value;
+if( x == null || x == "" )
+{
+ alert( "Please provide UserID" );
+ return false;
+}
+return true;
+}
 </script>
-<form action="./SearchStudentDetails" method="post">
+<form name = "search" action="./SearchStudentDetails" method="post" onsubmit="return validateForm()">
 	<h1 align="center"><font color="blue" size="6" >Login Page</font></h1>
 <table border="8" align="center">
 	<tr>

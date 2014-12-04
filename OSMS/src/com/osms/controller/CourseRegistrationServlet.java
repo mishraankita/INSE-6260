@@ -87,13 +87,13 @@ public class CourseRegistrationServlet extends ActionSupport implements SessionA
 
 			// Build list/table
 			coursesRegistration.buildRegistrationList(rowItems);
-
+			registrationCloseText = registrationCloseText ==null ? "is Open" : registrationCloseText;
 			PrintWriter out = getServletResponse().getWriter();
 			out.println("<html><body>"
 					+ "<form action=\"./studentsuccess.jsp\" method=POST >"
 					+ "<input type=\"submit\"  name=\"submit\" value=\"Return\" /></form>"
 					+ "<form action=\"./CourseChangeStudentServlet\" method=POST>"
-					+ "<h1 align=center ><font color=blue>Course Registration"
+					+ "<h1 align=center ><font color=blue>Course Registration "
 					+ registrationCloseText
 					+ "</font></h1>"
 					+ "<br><table border =1 align=center >"

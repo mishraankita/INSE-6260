@@ -7,9 +7,27 @@
 </head>
 <body background="bg16.jpg">
 <jsp:include page="header.jsp"/>
-<form name ="register" action="./RegisterByDPD" method=POST>
-<h1><font color="black" >Welcome To Registration Page</font></h1>
+
+<script type="text/JavaScript">
+	function validateForm()
+{		   
+   var x = document.forms["register"]["userID"].value;
+   if( x == null || x == "" )
+   {
+     alert( "Please provide User ID!" );
+     return false;
+   }
+   return true;
+}
+	</script>
+<form name ="register" action="./RegisterByDPD" method=POST onsubmit="return validateForm()">
+<h1><font color="black" >Welcome To Course Registration </font></h1>
 <table align="center">
+<tr>
+		<td align="center">
+			<font color="red"><%=request.getAttribute("resultsMessage")!=null ? request.getAttribute("resultsMessage") : ""%></font>
+		</td>
+</tr>
 <tr>
 		<td>User ID :</td>
 		<td><input type="text" name="userID"></td>

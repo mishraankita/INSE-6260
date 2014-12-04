@@ -27,7 +27,7 @@ public class SetAddDropDeadLine extends ActionSupport implements SessionAware,Se
 	HttpServletResponse response;
 	HttpServletRequest request;
 
-	public void SetDeadLine() {
+	public String SetDeadLine() {
 		
 		try {
 			Connection con = DBConnection.getConnection();
@@ -44,13 +44,16 @@ public class SetAddDropDeadLine extends ActionSupport implements SessionAware,Se
 				 
 				 updateData.executeUpdate();
 				 //con.commit();
-
+				 
 				 PrintWriter out = getServletResponse().getWriter();
 				out.println(" <h2 align=center><a href=./student.jsp>Register a new Student</a><br/></h2>");
 				out.println(" <h2 align=center><a href=./adminsuccess.jsp> Go to Home</a></h2>");
+				
 		} catch (Exception e) {
 			System.out.println(e);
+			return "failure";
 		}
+		return "success";
 	}
 
 	public void setSession(Map<String, Object> map) {

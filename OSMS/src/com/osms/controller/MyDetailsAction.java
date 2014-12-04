@@ -4,6 +4,9 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,11 +61,40 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 			ResultSet rs2 = stmt
 					.executeQuery("select * from coursetaken where UserID='"
 							+ userID + "'");
+			Map<Integer,List> courseMap = new HashMap<Integer, List>();
+			float cgpa=0.0f;
+			float coursesFinished = 0.0f;
 			while (rs2.next()) {
+				List courseDetailsList = new ArrayList();
 				student.setCourseID(rs2.getInt(2));
 				student.setGradesObtained(rs2.getString(3));
+				String gradeObtained = rs2.getString(3)!=null?rs2.getString(3):"In Progress";
+				courseDetailsList.add(gradeObtained);
+				if(rs2.getString(3) !=null){
+					coursesFinished +=1;
+					if(gradeObtained.equalsIgnoreCase("A+"))
+						cgpa +=4.3;
+					else if(gradeObtained.equalsIgnoreCase("A"))
+						cgpa +=4;
+					else if (gradeObtained.equalsIgnoreCase("A-"))
+						cgpa +=3.7;
+					else if (gradeObtained.equalsIgnoreCase("B+"))
+						cgpa +=3.3;
+					else if (gradeObtained.equalsIgnoreCase("B"))
+						cgpa +=3;
+					else if(gradeObtained.equalsIgnoreCase("B-"))
+						cgpa +=2.7;
+					else
+						cgpa +=0;
+				}
+				courseDetailsList.add("4");
+				courseDetailsList.add(rs2.getString(4));
+				courseMap.put(rs2.getInt(2),courseDetailsList);
+				student.setCreditsCompleted(student.getCreditsCompleted()+4);
 			}
-			
+			student.setCoursesMap(courseMap);
+			if(coursesFinished !=0)
+				student.setGpa((cgpa / coursesFinished));
 			
 //			ResultSet rs2 = stmt
 //					.executeQuery("select * from coursetaken where UserID='"
