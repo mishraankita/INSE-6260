@@ -61,7 +61,7 @@
 		</s:iterator>
 		<tr>
 			<td colspan="4">
-				<font >Total credits completed out of 40 := <s:property value="creditsCompleted" /></font>
+				<font >Total credits completed out of 45 := <s:property value="creditsCompleted" /></font>
 			</td>
 		</tr>
 		<tr>

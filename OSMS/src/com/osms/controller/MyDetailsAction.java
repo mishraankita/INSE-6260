@@ -20,6 +20,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.osms.domain.Student;
+import com.osms.model.GPACalculator;
 
 public class MyDetailsAction extends ActionSupport implements ModelDriven<Student> , SessionAware,ServletRequestAware,ServletResponseAware { 
 
@@ -62,39 +63,21 @@ public class MyDetailsAction extends ActionSupport implements ModelDriven<Studen
 					.executeQuery("select * from coursetaken where UserID='"
 							+ userID + "'");
 			Map<Integer,List> courseMap = new HashMap<Integer, List>();
-			float cgpa=0.0f;
-			float coursesFinished = 0.0f;
+			GPACalculator gpaCalculator = new GPACalculator(); 
 			while (rs2.next()) {
 				List courseDetailsList = new ArrayList();
 				student.setCourseID(rs2.getInt(2));
 				student.setGradesObtained(rs2.getString(3));
 				String gradeObtained = rs2.getString(3)!=null?rs2.getString(3):"In Progress";
 				courseDetailsList.add(gradeObtained);
-				if(rs2.getString(3) !=null){
-					coursesFinished +=1;
-					if(gradeObtained.equalsIgnoreCase("A+"))
-						cgpa +=4.3;
-					else if(gradeObtained.equalsIgnoreCase("A"))
-						cgpa +=4;
-					else if (gradeObtained.equalsIgnoreCase("A-"))
-						cgpa +=3.7;
-					else if (gradeObtained.equalsIgnoreCase("B+"))
-						cgpa +=3.3;
-					else if (gradeObtained.equalsIgnoreCase("B"))
-						cgpa +=3;
-					else if(gradeObtained.equalsIgnoreCase("B-"))
-						cgpa +=2.7;
-					else
-						cgpa +=0;
-				}
+				gpaCalculator.addGrade(rs2.getString(3));
 				courseDetailsList.add("4");
 				courseDetailsList.add(rs2.getString(4));
 				courseMap.put(rs2.getInt(2),courseDetailsList);
 				student.setCreditsCompleted(student.getCreditsCompleted()+4);
 			}
 			student.setCoursesMap(courseMap);
-			if(coursesFinished !=0)
-				student.setGpa((cgpa / coursesFinished));
+			student.setGpa((float)gpaCalculator.getGPA());
 			
 //			ResultSet rs2 = stmt
 //					.executeQuery("select * from coursetaken where UserID='"
