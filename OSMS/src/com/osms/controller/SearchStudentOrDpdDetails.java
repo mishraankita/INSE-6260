@@ -43,7 +43,6 @@ ServletRequestAware,ServletResponseAware {
 			Statement stmt = con.createStatement();
 			boolean validStudentAccount = false;
 			if (accountType.equalsIgnoreCase("student")) {
-				out.println(" <h2 align=center><a href=./studentEnroll.jsp>Register a new Student</a><br/></h2>");
 				ResultSet rs = stmt
 						.executeQuery("select * from studentdetails where UserID='"
 								+ userID + "'");
@@ -193,7 +192,6 @@ ServletRequestAware,ServletResponseAware {
 				out.println("<br/><br/>");
 			} else {
 				boolean validDPDAcoount = false;
-				out.println(" <h2 align=center><a href=./student.jsp>Register a new Student</a><br/></h2>");
 				//if selected entry is dpd.
 				ResultSet rs = stmt
 						.executeQuery("select * from employee where UserID='"
@@ -241,7 +239,6 @@ ServletRequestAware,ServletResponseAware {
 			
 				out.println("<br/><br/>");
 			}
-			out.println(" <h2 align=center><a href=./studentEnroll.jsp>Register a new Student</a><br/></h2>");
 			out.println(" <h2 align=center><a href=./adminsuccess.jsp> Go to Home</a></h2>");
 			System.out.println("==============================");
 			request.setAttribute("List", l);

@@ -18,12 +18,12 @@
 	   alert( "Please provide password" );
 	     return false;
    }
-//    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-//    if(!x.match(passw))   
-//    {   
-// 	   alert( "Please provide valid password" );
-// 	   return false;
-//    }
+    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    if(!x.match(passw))   
+    {   
+ 	   alert( "Please provide valid password" );
+ 	   return false;
+    }
    if(y == null || y == ""){
 	   alert( "Please provide confirm password" );
 	     return false;

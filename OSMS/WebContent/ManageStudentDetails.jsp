@@ -80,6 +80,12 @@
      alert( "Please provide password " );
      return false;
    }
+   var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+   if(!j.match(passw))   
+   {   
+ 	 alert( "Please provide valid password (6-20 characters, include 1 digit, 1 lower and 1 upper case characters)" );
+ 	 return false;
+   }
     var j = document.forms["studentEnroll"]["securityQuestion"].value;
    if( j == null || j == "" )
    {
@@ -146,10 +152,15 @@
 		<td><s:textfield name="dob" label="Date of Birth :" value="%{dob}"/></td>
 	</tr>
 	<tr>
-		<td><s:textfield name="password" label="Password :" value="%{password}"/></td>
+		<td><s:password name="password" label="Password :" value="%{password}"/></td>
 	</tr>
 	<tr>
-		<td><s:textfield name="securityQuestion" label="securityQuestion :" readonly="true" value="%{securityQuestion}"/></td>
+		<td>securityQuestion :</td>
+		<td><select name="securityQuestion">
+		  <option value="What is your Pet Name ?">What is your Pet Name ?</option>
+		  <option value="Who is your favourite Teacher ?">Who is your favourite Teacher ?</option>
+		   <option value="What is your favourite Subject ?">What is your favourite Subject ?</option>
+		</select></td>
 	</tr>
 	<tr>
 		<td><s:textfield name="answer" label="answer :" value="%{answer}"/></td>
